@@ -9,17 +9,16 @@
     "groq_connection": "pass",
     "groq_page_summary": "pass",
     "groq_rate_limit": "429 TPM limit observed",
-    "google_docs_write": "pass at least once; reliability hardening packaged",
-    "nvidia_provider": "code integrated and CI-green",
-    "provider_model_discovery": "code integrated and CI-green"
+    "nvidia_provider": "implementation and package CI-green",
+    "provider_model_discovery": "implementation and package CI-green"
   },
   "latest_candidate_build": {
-    "head_sha": "00b54cd7a3462801ae8fd8d586f80394cdc7a48f",
-    "ci_run_id": 36251248051,
+    "head_sha": "8976a1d52f30a6dc8621a368574b80638f9ce118",
+    "ci_run_id": 36251379178,
     "ci_result": "success",
-    "packaged_artifact_id": 10908779632
+    "packaged_artifact_id": 10908774990
   },
-  "next_action": "Install the NVIDIA/model-discovery build, choose NVIDIA, enter an NVIDIA API key, verify models auto-load from https://integrate.api.nvidia.com/v1/models, save one model, then rerun direct chat and Google Docs insertion before continuing remaining MVP smoke scenarios.",
+  "next_action": "Install the latest NVIDIA/model-discovery build, select NVIDIA, enter an NVIDIA API key, confirm live models auto-load, select and save one model, then rerun direct chat and Google Docs insertion.",
   "previous_completed_task": "RUNTIME-001",
   "updated_on": "2026-09-26"
 }
