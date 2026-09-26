@@ -13,16 +13,17 @@
     "provider": "Groq via OpenAI-compatible",
     "model": "openai/gpt-oss-120b",
     "page_summary": "pass",
-    "google_docs_write": "failed-on-initial-build; fix-candidate-awaiting-retest",
-    "stop_visibility": "failed-on-initial-build; fixed-candidate-awaiting-retest"
+    "google_docs_write": "initial failure; rich-editor/docs fallback packaged; awaiting retest",
+    "content_script_unavailable": "observed after extension reload; self-heal reinjection packaged; awaiting retest",
+    "stop_visibility": "initial failure; sticky abortable Stop packaged; awaiting retest"
   },
   "latest_verified_build": {
-    "head_sha": "41dbeaf406bcfe28799b9781321bfbbefdab86fa",
-    "github_actions_run_id": 36249044932,
+    "head_sha": "15fb2ebc6b81b2cd91ec5b4818b08b9fb8db08b5",
+    "github_actions_run_id": 36249400786,
     "result": "success",
-    "artifact_id": 10908303645,
+    "artifact_id": 10908522721,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:90e38ec6204f265876c5f38d545d82d661702103be6b5e789e5fd5acfd84dad0"
+    "github_artifact_digest": "sha256:97ac914c8164b27916c577b4ce04be371240d4259de57c95f3694676f4bead54"
   },
   "updated_on": "2026-09-26"
 }
