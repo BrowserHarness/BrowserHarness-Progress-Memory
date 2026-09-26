@@ -1,11 +1,18 @@
 {
   "schema_version": 1,
-  "id": "RUNTIME-001",
-  "title": "Establish BrowserCrew runtime skeleton and browser-control protocol",
+  "id": "MVP-QA-001",
+  "title": "Run real-Chrome MVP smoke tests and harden release blockers",
   "owner_repo": "BrowserCrew/browsercrew",
-  "status": "queued",
-  "objective": "Create the first implementation slice for the Chrome MV3 extension, browser-control/tool contracts, provider-neutral runtime boundaries and test/evaluation baseline without bypassing the established policy contracts.",
-  "next_action": "Define the browser-control protocol/tool schemas and scaffold the Chrome extension/runtime package boundaries in BrowserCrew/browsercrew.",
-  "previous_completed_task": "FOUNDATION-001",
+  "status": "active",
+  "objective": "Load the packaged v0.1 extension in Chrome and verify the ten MVP acceptance scenarios with real provider connections and normal websites, fixing runtime gaps before public release.",
+  "verified_prerequisite": {
+    "runtime_task": "RUNTIME-001",
+    "head_sha": "14258fa704489dbdb9a86acc31809810a05da624",
+    "ci_run_id": 36247804894,
+    "ci_result": "success",
+    "packaged_artifact_id": 10908361241
+  },
+  "next_action": "Load the packaged BrowserCrew extension in Chrome, connect a test provider, execute docs/qa/MVP-SMOKE-TEST.md from scenario 1 onward, and fix the first genuine runtime failure without adding post-MVP scope.",
+  "previous_completed_task": "RUNTIME-001",
   "updated_on": "2026-09-26"
 }
