@@ -5,34 +5,22 @@
 ## Phase
 **MVP internal smoke testing**
 
-## Completed
-- **FOUNDATION-001** — organization operating layer complete.
-- **RUNTIME-001** — first BrowserCrew v0.1 vertical slice implemented and build-verified.
-
 ## Real Chrome evidence
-Provider tested successfully:
-- Groq through the OpenAI-compatible adapter
+Provider:
+- Groq via OpenAI-compatible
 - model: `openai/gpt-oss-120b`
 
 Confirmed:
 - **Current-page summary: PASS**
 
-First failures found:
-- **Google Docs writing: FAIL on the first tested build**
-- **Stop control discoverability/cancellation: FAIL on the first tested build**
-
-Both now have packaged candidate fixes awaiting real-Chrome retest.
-
-## Candidate fixes
-- Generic `contenteditable` editor support.
-- Google Docs semantic **Document content** target backed by its hidden `.docs-texteventtarget-iframe`.
-- No new Chrome `debugger` permission added.
-- Sticky red Stop icon appears in the header while a task is running.
-- Stop aborts the active provider/model request immediately rather than waiting for it to return.
+Failures found and now patched for retest:
+- **Google Docs writing** — initial DOM-only typing could not handle Docs; candidate rich-editor + Docs text-event fallback packaged.
+- **Stop control** — initial placement/cancellation was insufficient; sticky header Stop now aborts the in-flight model request.
+- **Content script unavailable after extension reload** — BrowserCrew now attempts on-demand reinjection on normal HTTP(S) pages instead of immediately reporting them as protected.
 
 ## Latest verified candidate build
-- Head SHA: `41dbeaf406bcfe28799b9781321bfbbefdab86fa`
-- GitHub Actions run: `36249044932`
+- Head SHA: `15fb2ebc6b81b2cd91ec5b4818b08b9fb8db08b5`
+- GitHub Actions run: `36249400786`
 - Result: **success**
 - Install: success
 - Typecheck: success
@@ -40,10 +28,10 @@ Both now have packaged candidate fixes awaiting real-Chrome retest.
 - Extension-output validation: success
 - ZIP package: success
 - Artifact upload: success
-- Artifact ID: `10908303645`
+- Artifact ID: `10908522721`
 
 ## Current task
 **MVP-QA-001**
 
 ## Next precise action
-Install the latest candidate build, retest **Google Docs writing** and the **header Stop control**, then continue the remaining MVP smoke scenarios.
+Install the latest candidate build, retry Google Docs without manually refreshing the tab, confirm the header Stop control aborts immediately, then continue the remaining smoke scenarios.
