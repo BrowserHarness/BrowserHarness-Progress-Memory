@@ -4,15 +4,21 @@
   "title": "Run real-Chrome MVP smoke tests and harden release blockers",
   "owner_repo": "BrowserCrew/browsercrew",
   "status": "active",
-  "objective": "Load the packaged v0.1 extension in Chrome and verify the ten MVP acceptance scenarios with real provider connections and normal websites, fixing runtime gaps before public release.",
-  "verified_prerequisite": {
-    "runtime_task": "RUNTIME-001",
-    "head_sha": "14258fa704489dbdb9a86acc31809810a05da624",
-    "ci_run_id": 36247804894,
-    "ci_result": "success",
-    "packaged_artifact_id": 10908361241
+  "objective": "Verify the ten MVP acceptance scenarios in real Chrome with real provider connections and fix runtime failures before public release.",
+  "verified_smoke_progress": {
+    "provider": "Groq via OpenAI-compatible",
+    "model": "openai/gpt-oss-120b",
+    "scenario_1_current_page_summary": "pass",
+    "google_docs_write": "initial failure identified; candidate fix packaged",
+    "stop_control": "initial discoverability/cancellation gap identified; candidate fix packaged"
   },
-  "next_action": "Load the packaged BrowserCrew extension in Chrome, connect a test provider, execute docs/qa/MVP-SMOKE-TEST.md from scenario 1 onward, and fix the first genuine runtime failure without adding post-MVP scope.",
+  "latest_candidate_build": {
+    "head_sha": "41dbeaf406bcfe28799b9781321bfbbefdab86fa",
+    "ci_run_id": 36249044932,
+    "ci_result": "success",
+    "packaged_artifact_id": 10908303645
+  },
+  "next_action": "Install the latest candidate build, retest Google Docs writing and the sticky header Stop control first, then continue smoke scenarios 2–10 without adding post-MVP scope.",
   "previous_completed_task": "RUNTIME-001",
   "updated_on": "2026-09-26"
 }
