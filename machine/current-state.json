@@ -13,18 +13,19 @@
     "provider": "Groq via OpenAI-compatible",
     "model": "openai/gpt-oss-120b",
     "page_summary": "pass",
-    "direct_chat_final_answer": "intermittent parser failure on prior build; Groq JSON-mode fix packaged",
-    "google_docs_write": "one real insertion pass; intermittent parser failures on prior build; Groq JSON-mode fix packaged",
+    "direct_chat_final_answer": "prior malformed action failures; Groq JSON-mode + repair fix packaged",
+    "google_docs_write": "one real insertion pass; prior intermittent malformed action failures; Groq JSON-mode + repair fix packaged",
     "content_script_reinjection": "fix packaged",
-    "stop_control": "sticky abortable Stop packaged"
+    "stop_control": "sticky abortable Stop packaged",
+    "activity_failure_state": "fixed so parse/model errors stop the spinner and show failure"
   },
   "latest_verified_build": {
-    "head_sha": "c507d8f05916e8e016add31a0cd69aa23735b55b",
-    "github_actions_run_id": 36250049822,
+    "head_sha": "27bdb56514361d7b08f2a62b8d89df9ade49b3b1",
+    "github_actions_run_id": 36250176492,
     "result": "success",
-    "artifact_id": 10908409160,
+    "artifact_id": 10908643490,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:0aa2bf4ea27e2b225d04f14fd6a7d1a4a50f62ba05a3d5e2409306fcc3703df5"
+    "github_artifact_digest": "sha256:7359c805ba3be3bc077510d861b54de3007a5d741a50d54cb62131f5b4f8eeb6"
   },
   "updated_on": "2026-09-26"
 }
