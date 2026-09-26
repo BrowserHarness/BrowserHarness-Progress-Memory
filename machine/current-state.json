@@ -1,36 +1,41 @@
 {
   "schema_version": 1,
-  "phase": "mvp-internal-stability",
+  "phase": "v0.1.1-focused-acceptance",
   "status": "active",
   "current_workstream": "product-runtime",
   "current_task_id": "MVP-QA-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
-    "RUNTIME-001"
+    "RUNTIME-001",
+    "V0.1.1-INTERNAL-STABILITY"
   ],
   "strategy_change": {
     "user_time_policy": "internal verification first; user only performs focused acceptance after full gate",
     "stability_gate": "BrowserCrew/browsercrew/docs/qa/STABILITY-GATE.md"
   },
   "latest_verified_build": {
-    "head_sha": "12ce556f460487966cbf96c925866a9d3bc30d97",
-    "github_actions_run_id": 36255741358,
+    "head_sha": "7a50b165684e3ff4118691495af2250cbb4eed7a",
+    "github_actions_run_id": 36258863723,
     "result": "success",
-    "tests": "19/19 passed across 3 files",
-    "artifact_id": 10910941366,
+    "tests": "36/36 passed across 9 files",
+    "artifact_id": 10911493020,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:26adc882833517abcb9c6ba07bc7c8ba1a626090ba7eea7b1ee942f513509bbe"
+    "github_artifact_digest": "sha256:835dab18c1a1819fcc20c4985b96adafb3aa4acf9c6a71aba1318a66bca2f0b2"
   },
-  "stability_features": [
-    "deterministic chat-vs-browser intent routing",
-    "direct chat bypasses browser observation and action JSON",
-    "provider/model health check required before save/use",
-    "validated provider config stamp",
-    "NVIDIA/Groq timeout/error propagation",
-    "NVIDIA compatibility fallback",
-    "automatic model discovery where supported",
-    "unit regression suite required by CI"
+  "v0_1_1_features": [
+    "multiple saved provider/model connections",
+    "capability classification: chat, agent, vision, embedding, reranker, audio, image, unknown",
+    "separate Chat and Agent health probes",
+    "primary plus at most one validated fallback",
+    "recoverable-only provider failover",
+    "direct chat isolated from browser-agent planning",
+    "compact page observations: 6000 chars and 250 interactive elements",
+    "duplicate-action loop detection and bounded execution",
+    "explicit Google Docs site adapter",
+    "Auto routing indicator in chat header",
+    "internal-first CI regression gate"
   ],
+  "next_acceptance": "Install the exact final candidate, validate one primary provider/model with Test Chat + Agent & save, optionally configure one fallback, then perform one direct-chat prompt and one browser task. Do not resume patch-by-patch testing.",
   "updated_on": "2026-09-26"
 }
