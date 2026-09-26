@@ -3,64 +3,46 @@
 > Human-readable view. Canonical live state is in `machine/`.
 
 ## Phase
-**MVP internal stability hardening**
+**v0.1.1 focused acceptance**
 
-## Process change
-BrowserCrew will no longer use the user as the primary debugger for every small runtime patch.
+## Internal stability work completed
+BrowserCrew v0.1.1 now implements the reliable model + agent runtime planned for this build:
 
-New order:
-1. coherent fix/build;
-2. regression coverage;
-3. TypeScript;
-4. unit tests;
-5. production build;
-6. MV3 validation;
-7. ZIP packaging;
-8. one focused user acceptance check only after all gates pass.
+- multiple saved provider/model connections;
+- automatic model discovery where supported;
+- model capability classification: Chat, Agent, Vision, Embedding, Reranker, Audio, Image, Unknown;
+- separate Chat and Agent health probes;
+- explicit Primary + one Fallback route;
+- fallback only on recoverable failures such as 429, 5xx, timeout, empty response or malformed agent output;
+- no silent failover on authorization failures;
+- direct chat fully separated from browser-agent planning;
+- compact page observations capped at 6,000 normalized visible-text characters and 250 interactive elements;
+- duplicate-action loop protection and bounded execution;
+- explicit `generic-web` / `google-docs` site-adapter boundary;
+- Google Docs semantic editor target retained behind the adapter;
+- **Auto** header state when Primary + Fallback routing is configured;
+- internal-first stability gate required before user acceptance.
 
-Canonical policy:
-`BrowserCrew/browsercrew/docs/qa/STABILITY-GATE.md`
-
-## Architecture change
-BrowserCrew now has two runtime paths.
-
-### Direct chat
-Normal conversation/writing/brainstorming:
-- deterministic local routing;
-- no current-page observation;
-- no browser-agent JSON protocol;
-- plain provider chat response.
-
-### Browser agent
-Explicit page/tab/site/document/cursor/browser tasks:
-- page observation;
-- bounded agent loop;
-- structured actions;
-- mutation verification and approval gates.
-
-## Provider reliability
-- provider/model must pass **Test & save connection** before BrowserCrew will use it;
-- successful validation is stamped into local config;
-- stale/unvalidated provider configs cannot execute tasks;
-- NVIDIA/Groq/OpenAI-compatible model discovery supported when `/models` exists;
-- provider failures, 429s, empty responses and timeouts surface explicitly;
-- explicit user Stop is distinct from provider/network interruption.
-
-## Regression gate
-Latest verified candidate:
-- Head SHA: `12ce556f460487966cbf96c925866a9d3bc30d97`
-- GitHub Actions: `36255741358`
+## Verified build
+- Head SHA: `7a50b165684e3ff4118691495af2250cbb4eed7a`
+- GitHub Actions run: `36258863723`
 - Result: **success**
 - TypeScript: **PASS**
-- Unit tests: **19/19 PASS across 3 files**
+- Unit tests: **36/36 PASS across 9 files**
 - Production build: **PASS**
-- Extension validation: **PASS**
+- MV3 extension validation: **PASS**
 - ZIP package: **PASS**
 - Artifact upload: **PASS**
-- Artifact ID: `10910941366`
+- Artifact ID: `10911493020`
+- GitHub artifact digest: `sha256:835dab18c1a1819fcc20c4985b96adafb3aa4acf9c6a71aba1318a66bca2f0b2`
+
+## Canonical contracts
+- `BrowserCrew/browsercrew/ROADMAP.md` now includes **v0.1.1 — Reliable Model + Agent Runtime**.
+- `BrowserCrew/browsercrew/machine/capabilities.json` defines model roles, validation, and fallback policy.
+- `BrowserCrew/browsercrew/docs/qa/STABILITY-GATE.md` remains the mandatory internal-first verification policy.
 
 ## Current task
-**MVP-QA-001**
+**MVP-QA-001 — focused real-Chrome acceptance**
 
-## Next rule
-Do not ask for repeated user testing. Continue internal hardening first; the next user acceptance request should be minimal and only after the provider/model health check passes inside Settings.
+## Next precise action
+Install the exact verified v0.1.1 candidate. In Settings, validate one model with **Test Chat + Agent & save**; optionally configure one validated fallback. Then run exactly one direct-chat prompt and one browser task. Do not return to patch-by-patch user testing.
