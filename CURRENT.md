@@ -3,46 +3,66 @@
 > Human-readable view. Canonical live state is in `machine/`.
 
 ## Phase
-**v0.1.1 focused acceptance**
+**BrowserCrew v0.1 MVP — automated complete, manual acceptance pending**
 
-## Internal stability work completed
-BrowserCrew v0.1.1 now implements the reliable model + agent runtime planned for this build:
+## Product status
+v0.1 feature development is frozen.
 
-- multiple saved provider/model connections;
-- automatic model discovery where supported;
-- model capability classification: Chat, Agent, Vision, Embedding, Reranker, Audio, Image, Unknown;
-- separate Chat and Agent health probes;
-- explicit Primary + one Fallback route;
-- fallback only on recoverable failures such as 429, 5xx, timeout, empty response or malformed agent output;
-- no silent failover on authorization failures;
-- direct chat fully separated from browser-agent planning;
-- compact page observations capped at 6,000 normalized visible-text characters and 250 interactive elements;
-- duplicate-action loop protection and bounded execution;
-- explicit `generic-web` / `google-docs` site-adapter boundary;
-- Google Docs semantic editor target retained behind the adapter;
-- **Auto** header state when Primary + Fallback routing is configured;
-- internal-first stability gate required before user acceptance.
+The canonical product repo now reports:
+- automated implementation: **COMPLETE**
+- automated testing: **COMPLETE**
+- real-Chrome manual acceptance: **PENDING**
+- public release: **BLOCKED only by the final manual acceptance gate**
 
-## Verified build
-- Head SHA: `7a50b165684e3ff4118691495af2250cbb4eed7a`
-- GitHub Actions run: `36258863723`
+Do **not** start v0.2 feature work until manual acceptance is completed or a genuine acceptance blocker is found.
+
+## Final verified product state
+- Product SHA: `44fe5752af1f7956ec1fcf59a1a2604cbf33a84c`
+- GitHub Actions run: `36262805588`
 - Result: **success**
 - TypeScript: **PASS**
-- Unit tests: **36/36 PASS across 9 files**
+- Unit/regression tests: **63/63 PASS across 14 files**
 - Production build: **PASS**
-- MV3 extension validation: **PASS**
-- ZIP package: **PASS**
+- MV3 validation: **PASS**
+- MVP automated contract gate: **PASS**
+- ZIP packaging: **PASS**
 - Artifact upload: **PASS**
-- Artifact ID: `10911493020`
-- GitHub artifact digest: `sha256:835dab18c1a1819fcc20c4985b96adafb3aa4acf9c6a71aba1318a66bca2f0b2`
+- Artifact ID: `10912383198`
+- Artifact digest: `sha256:76c7b5f01c436d07329170a9ab8c79f4e2026edf5f1f14f83c3a1eaaefdd5d3a`
 
-## Canonical contracts
-- `BrowserCrew/browsercrew/ROADMAP.md` now includes **v0.1.1 — Reliable Model + Agent Runtime**.
-- `BrowserCrew/browsercrew/machine/capabilities.json` defines model roles, validation, and fallback policy.
-- `BrowserCrew/browsercrew/docs/qa/STABILITY-GATE.md` remains the mandatory internal-first verification policy.
+## MVP capabilities now implemented
+- Chat-first MV3 side panel.
+- Direct chat separated from browser-agent execution.
+- OpenAI, Anthropic, NVIDIA, and OpenAI-compatible provider paths.
+- Automatic model discovery where supported.
+- Model capability classification.
+- Separate Chat + Agent health probes.
+- Multiple saved model connections.
+- Primary + one validated Fallback with recoverable-only failover.
+- Single browser agent with retained multi-tab evidence.
+- 11 browser tools.
+- Observe → decide → act → verify runtime.
+- Bounded execution, stale recovery, and duplicate-action protection.
+- Pause and Stop.
+- Consequential-action approvals.
+- Optional all-sites and custom-endpoint permissions.
+- Google Docs site adapter.
+- Vision screenshot evidence handoff.
+- Watch Me workflow persistence/replay.
+- Local task-history UI with privacy control.
+- System/light/dark appearance.
+- Privacy, terms, support, Web Store permission baseline, and temporary package icons.
+- Machine-checkable automated MVP contract gate.
+
+## QA boundaries
+Automated evidence:
+`BrowserCrew/browsercrew/docs/qa/MVP-AUTOMATED-GATE.md`
+
+Final manual gate:
+`BrowserCrew/browsercrew/docs/qa/MVP-SMOKE-TEST.md`
 
 ## Current task
-**MVP-QA-001 — focused real-Chrome acceptance**
+**MVP-MANUAL-001 — ready, not started**
 
 ## Next precise action
-Install the exact verified v0.1.1 candidate. In Settings, validate one model with **Test Chat + Agent & save**; optionally configure one validated fallback. Then run exactly one direct-chat prompt and one browser task. Do not return to patch-by-patch user testing.
+When the user decides to test, use the focused real-Chrome acceptance checklist. Until then, preserve this exact v0.1 state and do not expand scope.
