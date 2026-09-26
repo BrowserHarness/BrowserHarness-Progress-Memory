@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "source_of_truth": "BrowserCrew/browsercrew/machine/repositories.json",
+  "note": "Mirror for session routing only; canonical organization ownership is maintained in browsercrew."
+}
