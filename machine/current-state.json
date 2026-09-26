@@ -1,41 +1,41 @@
 {
   "schema_version": 1,
-  "phase": "v0.1.1-focused-acceptance",
-  "status": "active",
+  "phase": "mvp-automated-complete-manual-pending",
+  "status": "ready",
   "current_workstream": "product-runtime",
-  "current_task_id": "MVP-QA-001",
+  "current_task_id": "MVP-MANUAL-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
     "RUNTIME-001",
-    "V0.1.1-INTERNAL-STABILITY"
+    "V0.1.1-INTERNAL-STABILITY",
+    "MVP-AUTOMATED-COMPLETE"
   ],
   "strategy_change": {
-    "user_time_policy": "internal verification first; user only performs focused acceptance after full gate",
-    "stability_gate": "BrowserCrew/browsercrew/docs/qa/STABILITY-GATE.md"
+    "user_time_policy": "internal verification first; manual user testing only after automated MVP completion",
+    "stability_gate": "BrowserCrew/browsercrew/docs/qa/STABILITY-GATE.md",
+    "automated_gate": "BrowserCrew/browsercrew/docs/qa/MVP-AUTOMATED-GATE.md",
+    "manual_gate": "BrowserCrew/browsercrew/docs/qa/MVP-SMOKE-TEST.md"
   },
   "latest_verified_build": {
-    "head_sha": "7a50b165684e3ff4118691495af2250cbb4eed7a",
-    "github_actions_run_id": 36258863723,
+    "head_sha": "44fe5752af1f7956ec1fcf59a1a2604cbf33a84c",
+    "github_actions_run_id": 36262805588,
     "result": "success",
-    "tests": "36/36 passed across 9 files",
-    "artifact_id": 10911493020,
+    "tests": "63/63 passed across 14 files",
+    "typecheck": "pass",
+    "production_build": "pass",
+    "mv3_validation": "pass",
+    "mvp_contract_gate": "pass",
+    "artifact_id": 10912383198,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:835dab18c1a1819fcc20c4985b96adafb3aa4acf9c6a71aba1318a66bca2f0b2"
+    "github_artifact_digest": "sha256:76c7b5f01c436d07329170a9ab8c79f4e2026edf5f1f14f83c3a1eaaefdd5d3a"
   },
-  "v0_1_1_features": [
-    "multiple saved provider/model connections",
-    "capability classification: chat, agent, vision, embedding, reranker, audio, image, unknown",
-    "separate Chat and Agent health probes",
-    "primary plus at most one validated fallback",
-    "recoverable-only provider failover",
-    "direct chat isolated from browser-agent planning",
-    "compact page observations: 6000 chars and 250 interactive elements",
-    "duplicate-action loop detection and bounded execution",
-    "explicit Google Docs site adapter",
-    "Auto routing indicator in chat header",
-    "internal-first CI regression gate"
-  ],
-  "next_acceptance": "Install the exact final candidate, validate one primary provider/model with Test Chat + Agent & save, optionally configure one fallback, then perform one direct-chat prompt and one browser task. Do not resume patch-by-patch testing.",
+  "mvp_status": {
+    "implementation": "complete",
+    "automated_testing": "complete",
+    "manual_real_chrome_acceptance": "pending",
+    "public_release": "blocked_until_manual_acceptance"
+  },
+  "next_action": "When the user is ready, run the focused real-Chrome acceptance gate in BrowserCrew/browsercrew/docs/qa/MVP-SMOKE-TEST.md. Do not start v0.2 feature work before that result is known.",
   "updated_on": "2026-09-26"
 }
