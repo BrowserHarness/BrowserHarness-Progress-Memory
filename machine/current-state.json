@@ -9,13 +9,20 @@
     "FOUNDATION-001",
     "RUNTIME-001"
   ],
+  "smoke_evidence": {
+    "provider": "Groq via OpenAI-compatible",
+    "model": "openai/gpt-oss-120b",
+    "page_summary": "pass",
+    "google_docs_write": "failed-on-initial-build; fix-candidate-awaiting-retest",
+    "stop_visibility": "failed-on-initial-build; fixed-candidate-awaiting-retest"
+  },
   "latest_verified_build": {
-    "head_sha": "14258fa704489dbdb9a86acc31809810a05da624",
-    "github_actions_run_id": 36247804894,
+    "head_sha": "41dbeaf406bcfe28799b9781321bfbbefdab86fa",
+    "github_actions_run_id": 36249044932,
     "result": "success",
-    "artifact_id": 10908361241,
+    "artifact_id": 10908303645,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:5e8b8c755df8a2058238965f998599fad3629e36b859f01aa73237153785b84f"
+    "github_artifact_digest": "sha256:90e38ec6204f265876c5f38d545d82d661702103be6b5e789e5fd5acfd84dad0"
   },
   "updated_on": "2026-09-26"
 }
