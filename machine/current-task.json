@@ -1,27 +1,31 @@
 {
   "schema_version": 1,
-  "id": "MVP-QA-001",
-  "title": "Focused acceptance of v0.1.1 reliable model + agent runtime",
+  "id": "MVP-MANUAL-001",
+  "title": "Final real-Chrome acceptance of BrowserCrew v0.1 MVP",
   "owner_repo": "BrowserCrew/browsercrew",
-  "status": "active",
-  "objective": "Perform one focused real-Chrome acceptance session against the internally verified v0.1.1 build, after provider/model capability health checks pass inside Settings.",
+  "status": "ready-not-started",
+  "objective": "Perform one focused real-Chrome acceptance pass only when the user is ready, using the already automated-complete MVP candidate.",
   "latest_candidate_build": {
-    "head_sha": "7a50b165684e3ff4118691495af2250cbb4eed7a",
-    "ci_run_id": 36258863723,
+    "head_sha": "44fe5752af1f7956ec1fcf59a1a2604cbf33a84c",
+    "ci_run_id": 36262805588,
     "ci_result": "success",
-    "tests": "36/36 passed across 9 files",
-    "packaged_artifact_id": 10911493020
+    "tests": "63/63 passed across 14 files",
+    "mvp_contract_gate": "pass",
+    "packaged_artifact_id": 10912383198,
+    "artifact_digest": "sha256:76c7b5f01c436d07329170a9ab8c79f4e2026edf5f1f14f83c3a1eaaefdd5d3a"
   },
   "acceptance_sequence": [
-    "Open Models & connections",
-    "Add provider/model and run Test Chat + Agent & save",
-    "Confirm Chat and Agent health are healthy for browser automation",
-    "Set Primary and optional Fallback",
-    "Run one direct-chat prompt and confirm no page observation",
-    "Run one browser task and confirm observe-act-verify behavior",
-    "Report only genuine real-browser failures not reproduced by the internal gate"
+    "Install the packaged extension in real Chrome",
+    "Validate one live provider/model with Chat + Agent health probes",
+    "Verify optional browser access behavior",
+    "Run one direct-chat prompt",
+    "Run one normal browser task end-to-end",
+    "Verify Google Docs insertion",
+    "Record and replay one real Watch Me workflow",
+    "Verify one safe consequential-action approval flow",
+    "Optionally verify screenshot vision with a validated vision model"
   ],
-  "next_action": "Use the exact verified v0.1.1 candidate for one focused acceptance session. No new feature work until that acceptance result is known.",
-  "previous_completed_task": "V0.1.1-INTERNAL-STABILITY",
+  "next_action": "Wait for the user to choose the manual acceptance session. No v0.2 feature work before acceptance.",
+  "previous_completed_task": "MVP-AUTOMATED-COMPLETE",
   "updated_on": "2026-09-26"
 }
