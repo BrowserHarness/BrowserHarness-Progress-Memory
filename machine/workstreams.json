@@ -4,27 +4,28 @@
     {
       "id": "foundation",
       "owner": "BrowserCrew/Progress-Memory",
-      "status": "active"
+      "status": "complete"
     },
     {
       "id": "product-runtime",
       "owner": "BrowserCrew/browsercrew",
-      "status": "queued"
+      "status": "active"
     },
     {
       "id": "skills-workflows",
       "owner": "BrowserCrew/Workflows + BrowserCrew/Skills-",
-      "status": "queued"
+      "status": "foundation-complete"
     },
     {
       "id": "commercial",
       "owner": "BrowserCrew/Marketing + BrowserCrew/Monetization + BrowserCrew/Website",
-      "status": "foundation"
+      "status": "foundation-complete"
     },
     {
       "id": "trust",
       "owner": "BrowserCrew/Security-Trust",
-      "status": "foundation"
+      "status": "foundation-complete"
     }
-  ]
+  ],
+  "updated_on": "2026-09-26"
 }
