@@ -13,18 +13,18 @@
     "provider": "Groq via OpenAI-compatible",
     "model": "openai/gpt-oss-120b",
     "page_summary": "pass",
-    "google_docs_write": "one real insertion pass; parser stability fix packaged",
+    "google_docs_write": "one real insertion pass; stability fix packaged",
     "groq_rate_limit": "429 TPM limit observed; provider-side quota issue",
-    "nvidia_provider": "integrated; automatic model discovery implemented; awaiting real Chrome credential/model-list smoke test",
-    "model_discovery": "implemented for OpenAI-compatible /models endpoints with searchable manual fallback"
+    "nvidia_provider": "integrated and CI-green; awaiting real Chrome credential/model-list smoke test",
+    "model_discovery": "automatic for OpenAI-compatible /models endpoints with searchable manual fallback"
   },
   "latest_verified_build": {
-    "head_sha": "00b54cd7a3462801ae8fd8d586f80394cdc7a48f",
-    "github_actions_run_id": 36251248051,
+    "head_sha": "8976a1d52f30a6dc8621a368574b80638f9ce118",
+    "github_actions_run_id": 36251379178,
     "result": "success",
-    "artifact_id": 10908779632,
+    "artifact_id": 10908774990,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:f374fb22136d4c5feb6e75b134b4a7ea9ff693fad35525fbc4803107ff12b292"
+    "github_artifact_digest": "sha256:68ed0866150534d5951e3d43aea983edd3f609b5beafd64bfaae9b36a4115421"
   },
   "updated_on": "2026-09-26"
 }
