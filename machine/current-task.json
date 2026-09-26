@@ -6,21 +6,20 @@
   "status": "active",
   "objective": "Verify the ten MVP acceptance scenarios in real Chrome with real provider connections and fix runtime failures before public release.",
   "verified_smoke_progress": {
-    "provider": "Groq via OpenAI-compatible",
-    "model": "openai/gpt-oss-120b",
-    "scenario_1_current_page_summary": "pass",
-    "google_docs_write": "one pass observed; parser reliability fix packaged",
-    "direct_chat": "prior malformed action failure; parser reliability fix packaged",
-    "groq_action_contract": "JSON mode + reasoning suppression + bounded repair retry packaged",
-    "activity_feedback": "failed model decision now closes spinner as error"
+    "groq_connection": "pass",
+    "groq_page_summary": "pass",
+    "groq_rate_limit": "429 TPM limit observed",
+    "google_docs_write": "pass at least once; reliability hardening packaged",
+    "nvidia_provider": "code integrated and CI-green",
+    "provider_model_discovery": "code integrated and CI-green"
   },
   "latest_candidate_build": {
-    "head_sha": "27bdb56514361d7b08f2a62b8d89df9ade49b3b1",
-    "ci_run_id": 36250176492,
+    "head_sha": "00b54cd7a3462801ae8fd8d586f80394cdc7a48f",
+    "ci_run_id": 36251248051,
     "ci_result": "success",
-    "packaged_artifact_id": 10908643490
+    "packaged_artifact_id": 10908779632
   },
-  "next_action": "Install the latest stability build, test direct chat final-answer prompts, repeat Google Docs insertion at least 5 times, then continue remaining MVP smoke scenarios.",
+  "next_action": "Install the NVIDIA/model-discovery build, choose NVIDIA, enter an NVIDIA API key, verify models auto-load from https://integrate.api.nvidia.com/v1/models, save one model, then rerun direct chat and Google Docs insertion before continuing remaining MVP smoke scenarios.",
   "previous_completed_task": "RUNTIME-001",
   "updated_on": "2026-09-26"
 }
