@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "workstreams": [
+    {
+      "id": "foundation",
+      "owner": "BrowserCrew/Progress-Memory",
+      "status": "active"
+    },
+    {
+      "id": "product-runtime",
+      "owner": "BrowserCrew/browsercrew",
+      "status": "queued"
+    },
+    {
+      "id": "skills-workflows",
+      "owner": "BrowserCrew/Workflows + BrowserCrew/Skills-",
+      "status": "queued"
+    },
+    {
+      "id": "commercial",
+      "owner": "BrowserCrew/Marketing + BrowserCrew/Monetization + BrowserCrew/Website",
+      "status": "foundation"
+    },
+    {
+      "id": "trust",
+      "owner": "BrowserCrew/Security-Trust",
+      "status": "foundation"
+    }
+  ]
+}
