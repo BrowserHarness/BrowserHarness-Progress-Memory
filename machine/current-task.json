@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "id": "FOUNDATION-001",
+  "title": "Structure, populate and wire BrowserCrew organization",
+  "owner_repo": "BrowserCrew/Progress-Memory",
+  "status": "in_progress",
+  "objective": "Establish canonical ownership, policies, templates, registries, routing and cross-repo operating contracts across all 19 repositories.",
+  "next_action": "Complete foundation writes and verify repository state.",
+  "updated_on": "2026-09-26"
+}
