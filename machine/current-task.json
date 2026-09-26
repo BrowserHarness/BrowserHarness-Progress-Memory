@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
-  "id": "FOUNDATION-001",
-  "title": "Structure, populate and wire BrowserCrew organization",
-  "owner_repo": "BrowserCrew/Progress-Memory",
-  "status": "in_progress",
-  "objective": "Establish canonical ownership, policies, templates, registries, routing and cross-repo operating contracts across all 19 repositories.",
-  "next_action": "Complete foundation writes and verify repository state.",
+  "id": "RUNTIME-001",
+  "title": "Establish BrowserCrew runtime skeleton and browser-control protocol",
+  "owner_repo": "BrowserCrew/browsercrew",
+  "status": "queued",
+  "objective": "Create the first implementation slice for the Chrome MV3 extension, browser-control/tool contracts, provider-neutral runtime boundaries and test/evaluation baseline without bypassing the established policy contracts.",
+  "next_action": "Define the browser-control protocol/tool schemas and scaffold the Chrome extension/runtime package boundaries in BrowserCrew/browsercrew.",
+  "previous_completed_task": "FOUNDATION-001",
   "updated_on": "2026-09-26"
 }
