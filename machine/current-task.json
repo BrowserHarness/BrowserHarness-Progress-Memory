@@ -1,18 +1,27 @@
 {
   "schema_version": 1,
   "id": "MVP-QA-001",
-  "title": "Stabilize BrowserCrew internally before focused user acceptance",
+  "title": "Focused acceptance of v0.1.1 reliable model + agent runtime",
   "owner_repo": "BrowserCrew/browsercrew",
   "status": "active",
-  "objective": "Use internal CI/regression gates for provider/runtime reliability and reserve user testing for one focused acceptance check after a coherent stability build passes.",
+  "objective": "Perform one focused real-Chrome acceptance session against the internally verified v0.1.1 build, after provider/model capability health checks pass inside Settings.",
   "latest_candidate_build": {
-    "head_sha": "12ce556f460487966cbf96c925866a9d3bc30d97",
-    "ci_run_id": 36255741358,
+    "head_sha": "7a50b165684e3ff4118691495af2250cbb4eed7a",
+    "ci_run_id": 36258863723,
     "ci_result": "success",
-    "tests": "19 passed",
-    "packaged_artifact_id": 10910941366
+    "tests": "36/36 passed across 9 files",
+    "packaged_artifact_id": 10911493020
   },
-  "next_action": "Do not request repeated user smoke tests. Continue internal hardening from regression evidence; when asking for acceptance next, require provider Test & save connection to pass first, then ask for one direct-chat check before broader browser-task testing.",
-  "previous_completed_task": "RUNTIME-001",
+  "acceptance_sequence": [
+    "Open Models & connections",
+    "Add provider/model and run Test Chat + Agent & save",
+    "Confirm Chat and Agent health are healthy for browser automation",
+    "Set Primary and optional Fallback",
+    "Run one direct-chat prompt and confirm no page observation",
+    "Run one browser task and confirm observe-act-verify behavior",
+    "Report only genuine real-browser failures not reproduced by the internal gate"
+  ],
+  "next_action": "Use the exact verified v0.1.1 candidate for one focused acceptance session. No new feature work until that acceptance result is known.",
+  "previous_completed_task": "V0.1.1-INTERNAL-STABILITY",
   "updated_on": "2026-09-26"
 }
