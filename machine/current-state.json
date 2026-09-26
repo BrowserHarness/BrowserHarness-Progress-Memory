@@ -1,9 +1,10 @@
 {
   "schema_version": 1,
-  "phase": "organization-foundation",
-  "status": "in_progress",
-  "current_workstream": "foundation",
-  "current_task_id": "FOUNDATION-001",
+  "phase": "product-runtime-foundation",
+  "status": "active",
+  "current_workstream": "product-runtime",
+  "current_task_id": "RUNTIME-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
+  "completed_foundation_task": "FOUNDATION-001",
   "updated_on": "2026-09-26"
 }
