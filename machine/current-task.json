@@ -9,17 +9,18 @@
     "provider": "Groq via OpenAI-compatible",
     "model": "openai/gpt-oss-120b",
     "scenario_1_current_page_summary": "pass",
-    "google_docs_write": "one pass observed; reliability blocked by malformed model actions on prior build",
-    "direct_chat": "malformed model action observed on prior build",
-    "groq_action_contract": "JSON-mode + one repair retry packaged; awaiting real Chrome retest"
+    "google_docs_write": "one pass observed; parser reliability fix packaged",
+    "direct_chat": "prior malformed action failure; parser reliability fix packaged",
+    "groq_action_contract": "JSON mode + reasoning suppression + bounded repair retry packaged",
+    "activity_feedback": "failed model decision now closes spinner as error"
   },
   "latest_candidate_build": {
-    "head_sha": "c507d8f05916e8e016add31a0cd69aa23735b55b",
-    "ci_run_id": 36250049822,
+    "head_sha": "27bdb56514361d7b08f2a62b8d89df9ade49b3b1",
+    "ci_run_id": 36250176492,
     "ci_result": "success",
-    "packaged_artifact_id": 10908409160
+    "packaged_artifact_id": 10908643490
   },
-  "next_action": "Install the latest Groq JSON-mode build, verify direct chat final answers and repeat Google Docs insertion at least 5 times, then continue remaining MVP smoke scenarios.",
+  "next_action": "Install the latest stability build, test direct chat final-answer prompts, repeat Google Docs insertion at least 5 times, then continue remaining MVP smoke scenarios.",
   "previous_completed_task": "RUNTIME-001",
   "updated_on": "2026-09-26"
 }
