@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "phase": "mvp-internal-smoke",
+  "phase": "mvp-internal-stability",
   "status": "active",
   "current_workstream": "product-runtime",
   "current_task_id": "MVP-QA-001",
@@ -9,22 +9,28 @@
     "FOUNDATION-001",
     "RUNTIME-001"
   ],
-  "smoke_evidence": {
-    "groq_connection": "pass",
-    "groq_page_summary": "pass",
-    "groq_rate_limit": "429 TPM limit observed",
-    "google_docs_write": "pass at least once",
-    "nvidia_model_discovery": "integrated and CI-green",
-    "nvidia_runtime_first_build": "hung/manual-stop on direct chat and Docs write",
-    "nvidia_runtime_fix": "task routing before page observe + 30s timeout + bounded JSON/reasoning settings + compatibility fallback packaged"
+  "strategy_change": {
+    "user_time_policy": "internal verification first; user only performs focused acceptance after full gate",
+    "stability_gate": "BrowserCrew/browsercrew/docs/qa/STABILITY-GATE.md"
   },
   "latest_verified_build": {
-    "head_sha": "8663c5b75aee631651bf9f3e4cb3b03e2c65fe02",
-    "github_actions_run_id": 36254678941,
+    "head_sha": "12ce556f460487966cbf96c925866a9d3bc30d97",
+    "github_actions_run_id": 36255741358,
     "result": "success",
-    "artifact_id": 10909394225,
+    "tests": "19/19 passed across 3 files",
+    "artifact_id": 10910941366,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:34a43e0bb23ed5da0e2466693859b507fe98eaf6cc221d1bfe1a49667f019eff"
+    "github_artifact_digest": "sha256:26adc882833517abcb9c6ba07bc7c8ba1a626090ba7eea7b1ee942f513509bbe"
   },
+  "stability_features": [
+    "deterministic chat-vs-browser intent routing",
+    "direct chat bypasses browser observation and action JSON",
+    "provider/model health check required before save/use",
+    "validated provider config stamp",
+    "NVIDIA/Groq timeout/error propagation",
+    "NVIDIA compatibility fallback",
+    "automatic model discovery where supported",
+    "unit regression suite required by CI"
+  ],
   "updated_on": "2026-09-26"
 }
