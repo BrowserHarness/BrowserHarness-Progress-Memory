@@ -3,16 +3,18 @@
 > Human-readable view. Canonical live state is in `machine/`.
 
 ## Phase
-**Organization foundation / operating system bootstrap**
+**Product runtime foundation**
 
-## Product direction
-BrowserCrew is a paid, model-agnostic browser-agent product centered on browser control, multi-agent/multi-tab work, Skills, Watch Me & Learn, compounding memory, provider choice and governed autonomy.
+## Verified foundation
+**FOUNDATION-001 is complete.** All 20 BrowserCrew repositories were structured, populated and verified on 2026-09-26.
 
-## Current work
-FOUNDATION-001 — structure, populate and wire all BrowserCrew organization repositories.
+The organization now has canonical ownership, cross-repo routing, agent instructions, machine registries, workflow/Skill promotion contracts, progressive autonomy, model-routing/automation policies, security/trust boundaries, commercial GTM/content/monetization/analytics/customer-ops foundations, and public GitHub governance.
 
 ## Current blockers
 None recorded.
 
+## Current task
+**RUNTIME-001** — establish the BrowserCrew implementation skeleton and browser-control protocol in `BrowserCrew/browsercrew`.
+
 ## Next precise action
-Complete repository contracts/registries, verify all 19 repository foundations, then advance to the first product architecture implementation slice in `BrowserCrew/browsercrew`.
+Define provider-neutral browser-control/tool schemas and scaffold the Chrome MV3 extension/runtime package boundaries with an evaluation baseline.
