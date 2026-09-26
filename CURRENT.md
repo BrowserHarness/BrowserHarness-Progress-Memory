@@ -14,35 +14,34 @@ Confirmed:
 - **Current-page summary: PASS**
 - **Google Docs insertion: PASS at least once**
 
-Intermittent failure observed on the prior build:
+Prior intermittent failure:
 - `Model did not return a BrowserCrew action`
-- affected both direct chat/final-answer prompts and Google Docs tasks
-- activity could remain at **Reading the current page**
+- affected direct chat/final-answer tasks and Google Docs runs
+- left **Reading the current page** spinning on failure
 
-This points to the model-output contract rather than Google Docs control itself.
-
-## Latest fix
+## Latest stability fix
 BrowserCrew now:
-- detects Groq through its OpenAI-compatible endpoint;
-- requests JSON Object Mode;
-- excludes reasoning output;
+- requests Groq JSON Object Mode;
+- suppresses reasoning output;
 - uses low GPT-OSS reasoning effort for the control loop;
-- parses balanced JSON more defensively;
-- performs one bounded repair retry for malformed action output.
+- parses balanced JSON defensively;
+- normalizes a small set of equivalent action shapes;
+- performs one bounded repair retry on malformed output;
+- closes the activity spinner as an error when model decision parsing fails.
 
 ## Latest verified build
-- Head SHA: `c507d8f05916e8e016add31a0cd69aa23735b55b`
-- GitHub Actions run: `36250049822`
+- Head SHA: `27bdb56514361d7b08f2a62b8d89df9ade49b3b1`
+- GitHub Actions run: `36250176492`
 - Result: **success**
 - Typecheck: success
 - Production build: success
 - Extension validation: success
 - ZIP packaging: success
 - Artifact upload: success
-- Artifact ID: `10908409160`
+- Artifact ID: `10908643490`
 
 ## Current task
 **MVP-QA-001**
 
 ## Next precise action
-Install the latest build, verify a direct chat response such as a 30-second AI-future script, then repeat the same Google Docs insertion command at least five times to measure reliability before continuing the remaining smoke scenarios.
+Install the latest stability build, first test a direct chat response such as a 30-second AI-future script, then repeat the same Google Docs insertion command at least five times and record reliability before continuing the remaining smoke scenarios.
