@@ -1,24 +1,18 @@
 {
   "schema_version": 1,
   "id": "MVP-QA-001",
-  "title": "Run real-Chrome MVP smoke tests and harden release blockers",
+  "title": "Stabilize BrowserCrew internally before focused user acceptance",
   "owner_repo": "BrowserCrew/browsercrew",
   "status": "active",
-  "objective": "Verify the ten MVP acceptance scenarios in real Chrome with real provider connections and fix runtime failures before public release.",
-  "verified_smoke_progress": {
-    "groq_connection": "pass",
-    "groq_page_summary": "pass",
-    "google_docs_write": "pass at least once",
-    "nvidia_models": "auto discovery implemented",
-    "nvidia_runtime": "first build stalled; bounded/direct-chat routing fix CI-green"
-  },
+  "objective": "Use internal CI/regression gates for provider/runtime reliability and reserve user testing for one focused acceptance check after a coherent stability build passes.",
   "latest_candidate_build": {
-    "head_sha": "8663c5b75aee631651bf9f3e4cb3b03e2c65fe02",
-    "ci_run_id": 36254678941,
+    "head_sha": "12ce556f460487966cbf96c925866a9d3bc30d97",
+    "ci_run_id": 36255741358,
     "ci_result": "success",
-    "packaged_artifact_id": 10909394225
+    "tests": "19 passed",
+    "packaged_artifact_id": 10910941366
   },
-  "next_action": "Install the latest NVIDIA runtime-fix build. First test a direct chat prompt ('hi whats your name'), then a 30-second script prompt, then Google Docs insertion. Confirm direct chat does not read the page, provider errors/timeouts surface within 30 seconds, and Docs tasks request page observation only when needed.",
+  "next_action": "Do not request repeated user smoke tests. Continue internal hardening from regression evidence; when asking for acceptance next, require provider Test & save connection to pass first, then ask for one direct-chat check before broader browser-task testing.",
   "previous_completed_task": "RUNTIME-001",
   "updated_on": "2026-09-26"
 }
