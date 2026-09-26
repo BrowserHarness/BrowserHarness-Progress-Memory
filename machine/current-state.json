@@ -1,10 +1,21 @@
 {
   "schema_version": 1,
-  "phase": "product-runtime-foundation",
+  "phase": "mvp-internal-smoke",
   "status": "active",
   "current_workstream": "product-runtime",
-  "current_task_id": "RUNTIME-001",
+  "current_task_id": "MVP-QA-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
-  "completed_foundation_task": "FOUNDATION-001",
+  "completed_tasks": [
+    "FOUNDATION-001",
+    "RUNTIME-001"
+  ],
+  "latest_verified_build": {
+    "head_sha": "14258fa704489dbdb9a86acc31809810a05da624",
+    "github_actions_run_id": 36247804894,
+    "result": "success",
+    "artifact_id": 10908361241,
+    "artifact_name": "browsercrew-extension",
+    "github_artifact_digest": "sha256:5e8b8c755df8a2058238965f998599fad3629e36b859f01aa73237153785b84f"
+  },
   "updated_on": "2026-09-26"
 }
