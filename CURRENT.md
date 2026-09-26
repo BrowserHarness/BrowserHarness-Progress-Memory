@@ -5,34 +5,35 @@
 ## Phase
 **MVP internal smoke testing**
 
-## Confirmed real-Chrome evidence
-- Groq connected through the OpenAI-compatible adapter.
-- Current-page summary: **PASS**.
-- Google Docs insertion: **PASS at least once**.
-- Groq subsequently returned HTTP 429 due provider-side TPM rate limit.
+## Confirmed
+- Groq connection through OpenAI-compatible adapter: **PASS**
+- Current-page summary: **PASS**
+- Google Docs insertion: **PASS at least once**
+- Groq later returned HTTP 429 due provider-side TPM rate limit
 
-## NVIDIA / model discovery
-BrowserCrew now has:
-- first-class **NVIDIA** provider option;
-- NVIDIA hosted NIM base URL: `https://integrate.api.nvidia.com/v1`;
-- automatic model discovery through compatible `/models` endpoints;
+## NVIDIA + automatic model discovery
+BrowserCrew now includes:
+- first-class **NVIDIA** provider;
+- NVIDIA hosted NIM base URL `https://integrate.api.nvidia.com/v1`;
+- automatic model discovery from compatible `/models` endpoints;
 - searchable Material model selector;
 - manual model-ID fallback;
-- the same discovery mechanism for generic OpenAI-compatible providers such as Groq.
+- automatic discovery for generic OpenAI-compatible endpoints such as Groq;
+- provider-switch credential clearing to avoid sending a previous provider's key to a new provider.
 
 ## Latest verified build
-- Head SHA: `00b54cd7a3462801ae8fd8d586f80394cdc7a48f`
-- GitHub Actions run: `36251248051`
+- Head SHA: `8976a1d52f30a6dc8621a368574b80638f9ce118`
+- GitHub Actions run: `36251379178`
 - Result: **success**
 - Typecheck: success
 - Production build: success
 - Extension validation: success
 - ZIP packaging: success
 - Artifact upload: success
-- Artifact ID: `10908779632`
+- Artifact ID: `10908774990`
 
 ## Current task
 **MVP-QA-001**
 
 ## Next precise action
-Install the NVIDIA/model-discovery build, choose NVIDIA, enter an NVIDIA API key, confirm the live model list loads automatically, select a model and save it, then rerun direct chat and Google Docs insertion.
+Install the latest build, choose NVIDIA, enter an NVIDIA API key, confirm the live model list loads automatically, choose a model, save it, then rerun the direct-chat and Google Docs tests.
