@@ -9,16 +9,17 @@
     "provider": "Groq via OpenAI-compatible",
     "model": "openai/gpt-oss-120b",
     "scenario_1_current_page_summary": "pass",
-    "google_docs_write": "initial failure identified; candidate fix packaged",
-    "stop_control": "initial discoverability/cancellation gap identified; candidate fix packaged"
+    "google_docs_write": "candidate fix packaged; awaiting real Chrome retest",
+    "stop_control": "candidate fix packaged; awaiting real Chrome retest",
+    "content_script_reinjection": "candidate fix packaged; awaiting real Chrome retest"
   },
   "latest_candidate_build": {
-    "head_sha": "41dbeaf406bcfe28799b9781321bfbbefdab86fa",
-    "ci_run_id": 36249044932,
+    "head_sha": "15fb2ebc6b81b2cd91ec5b4818b08b9fb8db08b5",
+    "ci_run_id": 36249400786,
     "ci_result": "success",
-    "packaged_artifact_id": 10908303645
+    "packaged_artifact_id": 10908522721
   },
-  "next_action": "Install the latest candidate build, retest Google Docs writing and the sticky header Stop control first, then continue smoke scenarios 2–10 without adding post-MVP scope.",
+  "next_action": "Install the latest candidate build, retest Google Docs writing without manually refreshing the tab, verify the sticky header Stop aborts immediately, then continue smoke scenarios 2–10.",
   "previous_completed_task": "RUNTIME-001",
   "updated_on": "2026-09-26"
 }
