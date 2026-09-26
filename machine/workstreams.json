@@ -9,7 +9,7 @@
     {
       "id": "product-runtime",
       "owner": "BrowserCrew/browsercrew",
-      "status": "active"
+      "status": "mvp-internal-smoke"
     },
     {
       "id": "skills-workflows",
@@ -24,7 +24,7 @@
     {
       "id": "trust",
       "owner": "BrowserCrew/Security-Trust",
-      "status": "foundation-complete"
+      "status": "mvp-hardening"
     }
   ],
   "updated_on": "2026-09-26"
