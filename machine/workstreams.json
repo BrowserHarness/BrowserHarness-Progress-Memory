@@ -9,12 +9,12 @@
     {
       "id": "product-runtime",
       "owner": "BrowserCrew/browsercrew",
-      "status": "v0.2-browser-reliability-bridge-foundation"
+      "status": "v0.2-source-audited-watch-me-v2"
     },
     {
       "id": "skills-workflows",
       "owner": "BrowserCrew/Workflows + BrowserCrew/Skills-",
-      "status": "foundation-complete"
+      "status": "bridge-skill-candidate-watch-me-v2-active"
     },
     {
       "id": "commercial",
