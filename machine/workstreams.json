@@ -9,7 +9,7 @@
     {
       "id": "product-runtime",
       "owner": "BrowserCrew/browsercrew",
-      "status": "mvp-automated-complete-manual-pending"
+      "status": "v0.2-browser-reliability-bridge-foundation"
     },
     {
       "id": "skills-workflows",
@@ -24,8 +24,8 @@
     {
       "id": "trust",
       "owner": "BrowserCrew/Security-Trust",
-      "status": "mvp-manual-acceptance-pending"
+      "status": "advanced-bridge-permission-design"
     }
   ],
-  "updated_on": "2026-09-26"
+  "updated_on": "2026-09-27"
 }
