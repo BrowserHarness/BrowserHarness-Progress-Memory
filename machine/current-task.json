@@ -4,7 +4,7 @@
   "title": "Source-audited browser reliability and Watch Me v2",
   "owner_repo": "BrowserCrew/browsercrew",
   "status": "active",
-  "objective": "Adopt proven browser-agent architecture patterns while preserving BrowserCrew provider neutrality, safety approvals, least-privilege core permissions, and stronger automated tests.",
+  "objective": "Match and improve the proven Kimi-class browser-agent runtime while preserving BrowserCrew model neutrality, task sessions, Bridge, approvals, and stronger automated evaluation.",
   "completed_slices": [
     {
       "id": "task-sessions-semantic-snapshot",
@@ -53,13 +53,13 @@
       "status": "candidate",
       "skill_repo": "BrowserCrew/Skills-",
       "skill_id": "SK-BROWSER-001",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "autonomy_ceiling": "A2",
       "evidence": {
-        "product_sha": "4188403ee33f95cb35e75f48bfcfbdc324fb7182",
-        "ci_run_id": 36333800978
+        "product_sha": "62003ecade09966635beaddc7330642f1892175e",
+        "ci_run_id": 36337556896
       },
-      "promotion_blocker": "15-case cross-runtime skill evaluation not yet executed"
+      "promotion_blocker": "25-case cross-runtime skill evaluation not yet executed"
     },
     {
       "id": "source-audit-navigation-read-page",
@@ -102,9 +102,28 @@
         "explicit switch_tab foreground control",
         "wrong-tab screenshot prevention"
       ]
+    },
+    {
+      "id": "full-browser-control-parity",
+      "status": "verified",
+      "verified_sha": "62003ecade09966635beaddc7330642f1892175e",
+      "ci_run_id": 36337556896,
+      "tests": "extension 96/96 + bridge 3/3",
+      "capabilities": [
+        "full permission envelope including debugger webNavigation webRequest unlimitedStorage <all_urls>",
+        "Accessibility.getFullAXTree backend-node refs",
+        "trusted mouse text and key input",
+        "focus emulation",
+        "native dialog state and handling",
+        "raw CDP escape hatch",
+        "network capture with response bodies",
+        "file upload",
+        "PDF export/download",
+        "23-tool Local Bridge surface"
+      ]
     }
   ],
-  "next_action": "Implement cross-page/multi-tab Watch Me recording before Skill compilation. Keep recording state in background/task context, collect steps incrementally across navigation/tab changes, enforce bounded evidence storage, and preserve the final recorded step as the workflow boundary.",
+  "next_action": "Implement cross-page/multi-tab Watch Me recording before Skill compilation. Use webNavigation/tab/window events now available in the primary permission envelope; keep recording state in the background runtime, collect steps incrementally, budget evidence, and preserve the last recorded step as the workflow boundary.",
   "mvp_manual_acceptance": "deferred by user; remains required before public v0.1 release",
   "updated_on": "2026-09-27"
 }
