@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "V0.2-RELIABILITY-001",
-  "title": "Browser reliability and Local Bridge foundation",
+  "title": "Source-audited browser reliability and Watch Me v2",
   "owner_repo": "BrowserCrew/browsercrew",
   "status": "active",
   "objective": "Adopt proven browser-agent architecture patterns while preserving BrowserCrew provider neutrality, safety approvals, least-privilege core permissions, and stronger automated tests.",
@@ -53,16 +53,58 @@
       "status": "candidate",
       "skill_repo": "BrowserCrew/Skills-",
       "skill_id": "SK-BROWSER-001",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "autonomy_ceiling": "A2",
       "evidence": {
         "product_sha": "4188403ee33f95cb35e75f48bfcfbdc324fb7182",
         "ci_run_id": 36333800978
       },
-      "promotion_blocker": "cross-runtime skill evaluation not yet executed"
+      "promotion_blocker": "15-case cross-runtime skill evaluation not yet executed"
+    },
+    {
+      "id": "source-audit-navigation-read-page",
+      "status": "verified",
+      "verified_sha": "7ca230ebbd0a281cf0b5a25bd69f5d25305eda3a",
+      "ci_run_id": 36335028368,
+      "tests": "extension 80/80 + bridge 3/3",
+      "capabilities": [
+        "serialized task-session state",
+        "bounded navigation readiness and redirect capture",
+        "read_page with scroll restoration and continuation",
+        "frame-targeted reading",
+        "stall/endless-feed/token-budget signals"
+      ]
+    },
+    {
+      "id": "watch-me-v2-first-pass",
+      "status": "verified",
+      "verified_sha": "796dbc551e0872b514590256e2327c9c248884e5",
+      "ci_run_id": 36335502895,
+      "tests": "extension 82/82 + bridge 3/3",
+      "capabilities": [
+        "richer locator metadata",
+        "text input debouncing",
+        "Enter/Tab recording",
+        "inferred reusable workflow inputs",
+        "approval-aware key replay",
+        "reinjection-safe content runtime"
+      ]
+    },
+    {
+      "id": "foreground-safe-tabs",
+      "status": "verified",
+      "verified_sha": "d2d1cc9600119ffb9c61830c3639c40eba4afc43",
+      "ci_run_id": 36335635257,
+      "tests": "extension 84/84 + bridge 3/3",
+      "capabilities": [
+        "background task tabs by default",
+        "find_tab without foreground activation",
+        "explicit switch_tab foreground control",
+        "wrong-tab screenshot prevention"
+      ]
     }
   ],
-  "next_action": "Build and run a cross-runtime evaluation harness for SK-BROWSER-001, then promote only if the 12-case bridge skill matrix passes. After that, begin Record → Skill / Session → Skill generation.",
+  "next_action": "Implement cross-page/multi-tab Watch Me recording before Skill compilation. Keep recording state in background/task context, collect steps incrementally across navigation/tab changes, enforce bounded evidence storage, and preserve the final recorded step as the workflow boundary.",
   "mvp_manual_acceptance": "deferred by user; remains required before public v0.1 release",
   "updated_on": "2026-09-27"
 }
