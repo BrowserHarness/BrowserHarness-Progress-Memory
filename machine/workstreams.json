@@ -9,12 +9,12 @@
     {
       "id": "product-runtime",
       "owner": "BrowserCrew/browsercrew",
-      "status": "v0.2-full-browser-agent-parity-watch-me-v2"
+      "status": "watch-me-v2-cross-page-verified"
     },
     {
       "id": "skills-workflows",
       "owner": "BrowserCrew/Workflows + BrowserCrew/Skills-",
-      "status": "bridge-skill-0.3-candidate-watch-me-v2-active"
+      "status": "record-session-skill-compiler-active"
     },
     {
       "id": "commercial",
