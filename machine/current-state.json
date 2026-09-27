@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "phase": "v0.2-full-browser-agent-parity-watch-me-v2",
+  "phase": "v0.2-watch-me-v2-verified-skill-compiler",
   "status": "active",
-  "current_workstream": "product-runtime",
-  "current_task_id": "V0.2-RELIABILITY-001",
+  "current_workstream": "skills-workflows",
+  "current_task_id": "V0.2-SKILL-COMPILER-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
@@ -14,7 +14,8 @@
     "V0.2-LOCAL-BRIDGE-FOUNDATION",
     "V0.2-SOURCE-AUDIT-RELIABILITY",
     "V0.2-WATCH-ME-V2-FIRST-PASS",
-    "V0.2-FULL-BROWSER-CONTROL-PARITY"
+    "V0.2-FULL-BROWSER-CONTROL-PARITY",
+    "V0.2-WATCH-ME-V2-CROSS-PAGE"
   ],
   "user_direction": {
     "manual_mvp_acceptance": "deferred by user until later",
@@ -23,18 +24,18 @@
     "reference_strategy": "use the shipped Kimi extension and official WebBridge behavior as reference, independently implement BrowserCrew, then improve with BrowserCrew routing/Bridge/Skills/tests"
   },
   "latest_verified_build": {
-    "head_sha": "62003ecade09966635beaddc7330642f1892175e",
-    "github_actions_run_id": 36337556896,
+    "head_sha": "440a27cbe26e00ffb341c844d9ac81d8b5ab2586",
+    "github_actions_run_id": 36338958528,
     "result": "success",
-    "extension_tests": "96/96 passed across 23 files",
+    "extension_tests": "107/107 passed across 25 files",
     "bridge_tests": "3/3 passed",
     "typecheck": "pass",
     "production_build": "pass",
     "mv3_validation": "pass",
     "mvp_contract_gate": "pass",
-    "artifact_id": 10937204939,
+    "artifact_id": 10938625438,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:7df54862f0b748829e1c509ac47e04c8614a1c96bf62d50796b6596fdaac39cf"
+    "github_artifact_digest": "sha256:612f168d1ca338e912265c4c92d37d041a2d3801bed2abdb349903c8e702c213"
   },
   "verified_v0_2_improvements": [
     "one browser task maps to one task session",
@@ -71,7 +72,20 @@
     "CDP file input upload from supplied local paths",
     "Page.printToPDF plus Chrome downloads",
     "Local Bridge exposes the same 23-tool full-power runtime",
-    "SK-BROWSER-001 advanced to 0.3.0 candidate with 25 evaluation cases"
+    "SK-BROWSER-001 advanced to 0.3.0 candidate with 25 evaluation cases",
+    "Watch Me recording ownership moved from page content scripts to background chrome.storage.session state",
+    "content scripts stream click/type/key steps incrementally to the background recorder",
+    "Watch Me survives navigation reloads and side-panel lifecycle",
+    "webNavigation top-frame navigation evidence is recorded",
+    "recording automatically re-arms content runtime after navigation completion",
+    "tabs opened by recorded tabs are adopted into the recording",
+    "tabs/windows explicitly activated by the user while recording are adopted and armed",
+    "tab activation and closure context is recorded",
+    "Watch Me writes are serialized to prevent concurrent event loss",
+    "recording evidence is bounded to 1000 steps 2000 events 50 tabs and approximately 2MB",
+    "oversize dropped evidence does not move boundary_step_id",
+    "SavedWorkflow v3 persists action steps context events recording summary and final demonstrated boundary",
+    "WATCH_STATUS restores the recording UI after side-panel reload"
   ],
   "architecture_decisions": {
     "primary_extension": "full browser-agent capability; no reduced Core/Advanced split",
@@ -88,7 +102,7 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Implement Watch Me v2 cross-page/multi-tab recording with background-owned recording state, incremental cross-navigation/tab step collection, webNavigation/tab event context, evidence/storage budgets, and the final recorded step as the workflow boundary. Only after that compile Record/Session → candidate Skill.",
+  "next_action": "Build the Skill compiler: compile verified SavedWorkflow v3 recordings and BrowserCrew task sessions into candidate Skills with inferred inputs, browser-context plan, boundary_step_id safety ceiling, provenance/evidence, and generated evaluation matrices. Do not auto-promote.",
   "updated_on": "2026-09-27",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
