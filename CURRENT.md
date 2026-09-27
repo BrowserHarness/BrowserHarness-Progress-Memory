@@ -3,97 +3,127 @@
 > Human-readable view. Canonical live state is in `machine/`.
 
 ## Phase
-**v0.2 Source-Audited Browser Reliability + Watch Me v2 — active**
+**v0.2 Full Browser-Agent Parity + Watch Me v2 — active**
 
-The user supplied the shipped Kimi Browser Extension/WebBridge 2.0.22 package as a proven reference implementation. BrowserCrew is using it as a clean-room architecture/behavior reference to avoid rediscovering mature browser-agent engineering patterns. No proprietary implementation is copied verbatim.
+The user explicitly set the product direction: functionality is the priority. BrowserCrew should use the proven Kimi Browser Extension/WebBridge implementation as an engineering shortcut, match the capabilities that make it reliable, and then exceed it with BrowserCrew's provider-neutral model layer, routing, Local Bridge, Skills, approvals, and stronger automated evaluation.
 
-Manual real-Chrome MVP acceptance remains required before public release, but is intentionally deferred while automated development continues.
+The old reduced-permission Core/Advanced split is retired.
 
 ## Latest verified product build
-- Product SHA: `d2d1cc9600119ffb9c61830c3639c40eba4afc43`
-- GitHub Actions run: `36335635257`
+- Product SHA: `62003ecade09966635beaddc7330642f1892175e`
+- GitHub Actions run: `36337556896`
 - Result: **success**
-- Extension tests: **84/84 PASS across 19 files**
+- Extension tests: **96/96 PASS across 23 files**
 - Local Bridge tests: **3/3 PASS**
 - TypeScript: **PASS**
 - Production build: **PASS**
 - MV3 validation: **PASS**
-- MVP contract gate: **PASS**
+- 23-tool automated contract gate: **PASS**
 - Package/upload: **PASS**
-- Artifact ID: `10936324239`
-- Artifact digest: `sha256:767a8252412a2c27e58abf4a13c395effd424c12c6ad6fed5ca1df1b0da62ddc`
+- Artifact ID: `10937204939`
+- Artifact digest: `sha256:7df54862f0b748829e1c509ac47e04c8614a1c96bf62d50796b6596fdaac39cf`
+
+## Primary BrowserCrew capability envelope
+
+### Full browser permissions
+The primary BrowserCrew extension now intentionally includes:
+- `debugger`
+- `<all_urls>`
+- `webNavigation`
+- `webRequest`
+- `unlimitedStorage`
+- `downloads`
+- `tabs`
+- `windows`
+- `tabGroups`
+- `scripting`
+- alarms / context menus / notifications / favicon / storage / side panel
+
+These permissions are treated as product capabilities, not a separate edition.
+
+### 23 browser tools
+1. observe_page
+2. read_page
+3. ax_snapshot
+4. navigate
+5. click
+6. trusted_click
+7. type
+8. trusted_type
+9. press_key
+10. trusted_key
+11. scroll
+12. wait
+13. open_tab
+14. find_tab
+15. list_tabs
+16. switch_tab
+17. close_tab
+18. screenshot
+19. dialog
+20. network
+21. upload
+22. save_pdf
+23. cdp
+
+### CDP / accessibility layer
+- debugger attach/detach manager.
+- Accessibility.getFullAXTree.
+- backend DOM node mapped `@e` refs.
+- trusted mouse input via Input.dispatchMouseEvent.
+- trusted text via DOM.focus + Input.insertText.
+- trusted keyboard via Input.dispatchKeyEvent.
+- Emulation.setFocusEmulationEnabled for background task tabs.
+- native JavaScript dialog tracking and accept/dismiss/prompt handling.
+- raw CDP escape hatch.
+
+### Network / files
+- Network.enable lifecycle capture.
+- request/response headers, request body and response metadata.
+- Network.getResponseBody when available.
+- bounded request record retention.
+- DOM.setFileInputFiles upload with supplied local paths.
+- Page.printToPDF + Chrome downloads.
+
+### Existing BrowserCrew advantages retained
+- provider-neutral OpenAI / Anthropic / NVIDIA / OpenAI-compatible model routing.
+- model discovery and capability classification.
+- separate Chat + Agent health.
+- Primary + Fallback.
+- direct-chat/browser-agent separation.
+- task sessions and tab ownership.
+- Local Bridge + pairing token.
+- deterministic engine tests.
+- consequential-action approvals.
+- candidate Skill evaluation/promotion discipline.
+- bounded read_page and token-efficient evidence.
 
 ## Source reference
-Behavioral audit:
 `BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md`
 
-Key observed mature patterns include layered DOM/CDP control, real accessibility/backend-node refs, task sessions/tab groups, serialized state writes, load/readiness waits, background-safe focus policy, full-page bounded reading, frame isolation, trusted input, native dialog handling, richer recording evidence, network/upload/PDF tools, and adaptive workflow distillation.
+The audit now reflects the full-capability direction rather than the old least-privilege split.
 
-BrowserCrew Core deliberately does **not** copy Kimi's broad permission envelope. Core stays least-privilege; debugger/CDP remains reserved for a separately disclosed Advanced/Bridge distribution.
+## External-agent Skill
+- Repo: `BrowserCrew/Skills-`
+- Skill: `SK-BROWSER-001`
+- Version: **0.3.0**
+- Status: **candidate**
+- Evaluation matrix: **25 cases**
+- Promotion blocker: cross-runtime execution evidence.
 
-## Verified source-derived improvements
-
-### Session/navigation reliability
-- One task = one session.
-- Starting user tab borrowed; created tabs owned/grouped.
-- Concurrent session mutations are serialized and merge against latest state.
-- Navigation waits for a usable page/document and returns final redirect state.
-- Session-scoped `list_tabs` / `find_tab`.
-
-### Semantic observation and reading
-- Stable `@e` refs and compact snapshots.
-- Dedicated `read_page` instead of bloating every observation.
-- 12k default extraction window for provider/token efficiency.
-- Hard char/screen/time budgets.
-- Scroll restoration.
-- `next_start` continuation.
-- stalled/endless-feed/budget/shadow-host signals.
-- separate `#fN` frame reads.
-
-### Rich input
-- Native input/textarea value setters.
-- `beforeinput` / `input` / `change` sequencing.
-- stronger contenteditable insertion fallback.
-
-### Watch Me v2 — first verified pass
-- richer semantic locator metadata.
-- stable step IDs/timestamps/page/scroll context.
-- pointer coordinates.
-- text-input debouncing instead of one action per keystroke.
-- Enter/Tab key steps.
-- inferred reusable workflow inputs.
-- readable step descriptions.
-- weighted replay matching instead of brittle exact matching.
-- Enter-submit approval metadata and approval-aware replay.
-- reinjection-safe content runtime; older duplicate listeners are invalidated.
-
-### Foreground safety
-- task-created tabs open in background by default.
-- `find_tab` changes BrowserCrew's task target without stealing Chrome foreground.
-- `switch_tab` is explicit foreground activation.
-- screenshot refuses a background target instead of silently capturing another active tab.
-
-### Local Bridge
-- loopback-only daemon + pairing token.
-- HTTP command relay + WebSocket extension channel.
-- BrowserCrew task/session semantics and approval policy reused.
-- operational CLI.
-- external-agent candidate Skill `SK-BROWSER-001` is now **0.2.0 candidate**, with **15 evaluation cases** and still blocked from promotion until cross-runtime evaluation.
-
-## Current architecture rule
-- **Core:** least privilege, semantic DOM/scripting, approvals, bounded reading/recording.
-- **Advanced/Bridge later:** debugger/CDP, trusted mouse/key/text, focus emulation, native dialogs, raw CDP, advanced network/PDF.
-- Do not add `<all_urls>`, `unlimitedStorage`, always-on broad content scripts, or `debugger` to Core merely for parity.
+## Manual acceptance
+Still intentionally deferred by the user. Public release will eventually require a focused real-Chrome pass, but development continues first.
 
 ## Current task
-**V0.2-RELIABILITY-001 — Source-audited browser reliability and Watch Me v2**
+**V0.2-RELIABILITY-001 — Full browser-agent parity + Watch Me v2**
 
 ## Next precise action
-Implement **Watch Me v2 cross-page/multi-tab recording before Skill compilation**:
-1. move recording ownership/state into the background/task runtime;
-2. collect steps incrementally instead of only at page-local stop;
-3. capture navigation/new-tab/tab-activation context;
-4. re-arm the recorder after navigation;
-5. enforce evidence/storage budgets;
-6. preserve the final recorded step as the workflow goal/safety boundary;
-7. only then compile Record/Session → candidate Skill.
+Implement **Watch Me v2 cross-page/multi-tab recording**:
+1. move recording ownership/state into the background runtime;
+2. use webNavigation/tab/window events to record navigation and task context;
+3. collect content-script steps incrementally across page reloads/navigations;
+4. re-arm recording after navigation;
+5. record new-tab and activation context;
+6. enforce bounded recording/evidence storage;
+7. preserve the final recorded step as the workflow/safety boundary;
+8. only then compile Record/Session → candidate Skill.
