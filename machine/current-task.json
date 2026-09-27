@@ -1,31 +1,39 @@
 {
   "schema_version": 1,
-  "id": "MVP-MANUAL-001",
-  "title": "Final real-Chrome acceptance of BrowserCrew v0.1 MVP",
+  "id": "V0.2-RELIABILITY-001",
+  "title": "Browser reliability and Local Bridge foundation",
   "owner_repo": "BrowserCrew/browsercrew",
-  "status": "ready-not-started",
-  "objective": "Perform one focused real-Chrome acceptance pass only when the user is ready, using the already automated-complete MVP candidate.",
-  "latest_candidate_build": {
-    "head_sha": "44fe5752af1f7956ec1fcf59a1a2604cbf33a84c",
-    "ci_run_id": 36262805588,
-    "ci_result": "success",
-    "tests": "63/63 passed across 14 files",
-    "mvp_contract_gate": "pass",
-    "packaged_artifact_id": 10912383198,
-    "artifact_digest": "sha256:76c7b5f01c436d07329170a9ab8c79f4e2026edf5f1f14f83c3a1eaaefdd5d3a"
-  },
-  "acceptance_sequence": [
-    "Install the packaged extension in real Chrome",
-    "Validate one live provider/model with Chat + Agent health probes",
-    "Verify optional browser access behavior",
-    "Run one direct-chat prompt",
-    "Run one normal browser task end-to-end",
-    "Verify Google Docs insertion",
-    "Record and replay one real Watch Me workflow",
-    "Verify one safe consequential-action approval flow",
-    "Optionally verify screenshot vision with a validated vision model"
+  "status": "active",
+  "objective": "Adopt proven browser-agent architecture patterns while preserving BrowserCrew provider neutrality, safety approvals, least-privilege core permissions, and stronger automated tests.",
+  "completed_slices": [
+    {
+      "id": "task-sessions-semantic-snapshot",
+      "status": "verified",
+      "verified_sha": "c8ea8510c62c88e558e59c188b0974f184311852",
+      "ci_run_id": 36333042347,
+      "tests": "69/69",
+      "capabilities": [
+        "task-owned tab sessions and Chrome tab groups",
+        "borrowed user tab protection",
+        "session list_tabs/find_tab",
+        "semantic @e refs",
+        "compact snapshots"
+      ]
+    },
+    {
+      "id": "rich-input-fill",
+      "status": "verified",
+      "verified_sha": "35a66fa0fbd5610dcee0f2b023186af080770a49",
+      "ci_run_id": 36333144524,
+      "tests": "69/69",
+      "capabilities": [
+        "native framework input setter",
+        "beforeinput/input/change event sequence",
+        "contenteditable insertion fallback"
+      ]
+    }
   ],
-  "next_action": "Wait for the user to choose the manual acceptance session. No v0.2 feature work before acceptance.",
-  "previous_completed_task": "MVP-AUTOMATED-COMPLETE",
-  "updated_on": "2026-09-26"
+  "next_action": "Implement BrowserCrew Local Bridge command/session protocol for external agents. Do not put chrome.debugger in the core package; plan trusted CDP as a separate Advanced/Bridge distribution.",
+  "mvp_manual_acceptance": "deferred by user; remains required before public v0.1 release",
+  "updated_on": "2026-09-27"
 }
