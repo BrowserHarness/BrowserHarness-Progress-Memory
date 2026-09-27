@@ -63,5 +63,14 @@ Chrome does not allow the `debugger` permission to be optional. Core BrowserCrew
 ## Current task
 **V0.2-RELIABILITY-001 — Browser reliability and Local Bridge foundation**
 
+## External-agent Skill candidate
+- Repo: `BrowserCrew/Skills-`
+- Skill: `SK-BROWSER-001` / `browsercrew-bridge`
+- Version: `0.1.0`
+- Status: **candidate**
+- Autonomy ceiling: **A2**
+- Evaluation matrix: **12 cases**
+- Promotion remains blocked until cross-runtime execution evidence passes.
+
 ## Next precise action
-Create a reusable external-agent BrowserCrew Bridge skill/adapter (usable by Hermes/Codex/Claude-class local agents), then build Record → Skill / Session → Skill / Site → Skill on top of the stable task-session and bridge protocol.
+Build and run a cross-runtime evaluation harness for `SK-BROWSER-001`. Promote it to active only after the full candidate matrix passes; then begin Record → Skill / Session → Skill generation on top of the verified bridge/session protocol.
