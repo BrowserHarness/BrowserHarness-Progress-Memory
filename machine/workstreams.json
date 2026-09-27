@@ -9,12 +9,12 @@
     {
       "id": "product-runtime",
       "owner": "BrowserCrew/browsercrew",
-      "status": "v0.2-source-audited-watch-me-v2"
+      "status": "v0.2-full-browser-agent-parity-watch-me-v2"
     },
     {
       "id": "skills-workflows",
       "owner": "BrowserCrew/Workflows + BrowserCrew/Skills-",
-      "status": "bridge-skill-candidate-watch-me-v2-active"
+      "status": "bridge-skill-0.3-candidate-watch-me-v2-active"
     },
     {
       "id": "commercial",
@@ -24,7 +24,7 @@
     {
       "id": "trust",
       "owner": "BrowserCrew/Security-Trust",
-      "status": "advanced-bridge-permission-design"
+      "status": "full-capability-permission-contract-verified"
     }
   ],
   "updated_on": "2026-09-27"
