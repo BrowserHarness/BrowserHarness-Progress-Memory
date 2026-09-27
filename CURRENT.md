@@ -3,66 +3,49 @@
 > Human-readable view. Canonical live state is in `machine/`.
 
 ## Phase
-**BrowserCrew v0.1 MVP — automated complete, manual acceptance pending**
+**v0.2 Browser Reliability + Bridge Foundation — active**
 
-## Product status
-v0.1 feature development is frozen.
+The user explicitly reopened development before the final manual MVP acceptance pass. Manual acceptance remains required before public v0.1 release, but it is intentionally deferred while BrowserCrew is improved using proven browser-agent patterns.
 
-The canonical product repo now reports:
-- automated implementation: **COMPLETE**
-- automated testing: **COMPLETE**
-- real-Chrome manual acceptance: **PENDING**
-- public release: **BLOCKED only by the final manual acceptance gate**
-
-Do **not** start v0.2 feature work until manual acceptance is completed or a genuine acceptance blocker is found.
-
-## Final verified product state
-- Product SHA: `44fe5752af1f7956ec1fcf59a1a2604cbf33a84c`
-- GitHub Actions run: `36262805588`
+## Latest verified build
+- Product SHA: `35a66fa0fbd5610dcee0f2b023186af080770a49`
+- GitHub Actions run: `36333144524`
 - Result: **success**
+- Unit/regression tests: **69/69 PASS across 15 files**
 - TypeScript: **PASS**
-- Unit/regression tests: **63/63 PASS across 14 files**
 - Production build: **PASS**
 - MV3 validation: **PASS**
-- MVP automated contract gate: **PASS**
-- ZIP packaging: **PASS**
-- Artifact upload: **PASS**
-- Artifact ID: `10912383198`
-- Artifact digest: `sha256:76c7b5f01c436d07329170a9ab8c79f4e2026edf5f1f14f83c3a1eaaefdd5d3a`
+- MVP contract gate: **PASS**
+- Packaging/upload: **PASS**
+- Artifact ID: `10936581674`
+- Artifact digest: `sha256:52821b3d90b4a7ea4f94196b74cb0ca9f820f919688e648f79cddc23a5a723a5`
 
-## MVP capabilities now implemented
-- Chat-first MV3 side panel.
-- Direct chat separated from browser-agent execution.
-- OpenAI, Anthropic, NVIDIA, and OpenAI-compatible provider paths.
-- Automatic model discovery where supported.
-- Model capability classification.
-- Separate Chat + Agent health probes.
-- Multiple saved model connections.
-- Primary + one validated Fallback with recoverable-only failover.
-- Single browser agent with retained multi-tab evidence.
-- 11 browser tools.
-- Observe → decide → act → verify runtime.
-- Bounded execution, stale recovery, and duplicate-action protection.
-- Pause and Stop.
-- Consequential-action approvals.
-- Optional all-sites and custom-endpoint permissions.
-- Google Docs site adapter.
-- Vision screenshot evidence handoff.
-- Watch Me workflow persistence/replay.
-- Local task-history UI with privacy control.
-- System/light/dark appearance.
-- Privacy, terms, support, Web Store permission baseline, and temporary package icons.
-- Machine-checkable automated MVP contract gate.
+## Verified post-MVP improvements
+### Task sessions + semantic browser model
+- One browser task = one task session.
+- The user's starting tab is borrowed, not owned.
+- Tabs BrowserCrew creates are task-owned and grouped in Chrome.
+- Borrowed/unrelated user tabs are protected from task-session close operations.
+- Added session-scoped `list_tabs` and `find_tab`.
+- Regular interactive controls expose stable semantic `@e` references.
+- Observations include a compact accessibility-style snapshot.
 
-## QA boundaries
-Automated evidence:
-`BrowserCrew/browsercrew/docs/qa/MVP-AUTOMATED-GATE.md`
+### Rich input reliability
+- Form fills use native input/textarea value setters for framework-controlled fields.
+- BrowserCrew emits `beforeinput`, `input`, and `change` events.
+- Contenteditable/rich-editor insertion now has a stronger range-based fallback.
 
-Final manual gate:
-`BrowserCrew/browsercrew/docs/qa/MVP-SMOKE-TEST.md`
+## CDP / debugger decision
+Chrome does not allow the `debugger` permission to be optional. BrowserCrew therefore keeps the core extension least-privilege. Trusted CDP/input control will be designed as a separately disclosed **BrowserCrew Advanced/Bridge** distribution instead of silently expanding core permissions.
+
+## MVP status
+- implementation: **complete**
+- automated gate: **complete**
+- manual real-Chrome acceptance: **pending and intentionally deferred by the user**
+- public release: still requires that final manual pass
 
 ## Current task
-**MVP-MANUAL-001 — ready, not started**
+**V0.2-RELIABILITY-001 — Browser reliability and Local Bridge foundation**
 
 ## Next precise action
-When the user decides to test, use the focused real-Chrome acceptance checklist. Until then, preserve this exact v0.1 state and do not expand scope.
+Implement the BrowserCrew Local Bridge protocol for external agents, carrying the same task session IDs, owned/borrowed tab semantics, semantic `@e` refs, approval rules, and BrowserCrew tool envelopes across the local connection.
