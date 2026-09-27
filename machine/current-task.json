@@ -47,9 +47,22 @@
         "start/status/stop/restart/logs/pair CLI",
         "protocol v0.1 docs/contracts"
       ]
+    },
+    {
+      "id": "external-agent-bridge-skill",
+      "status": "candidate",
+      "skill_repo": "BrowserCrew/Skills-",
+      "skill_id": "SK-BROWSER-001",
+      "version": "0.1.0",
+      "autonomy_ceiling": "A2",
+      "evidence": {
+        "product_sha": "4188403ee33f95cb35e75f48bfcfbdc324fb7182",
+        "ci_run_id": 36333800978
+      },
+      "promotion_blocker": "cross-runtime skill evaluation not yet executed"
     }
   ],
-  "next_action": "Build a reusable BrowserCrew Bridge skill/adapter for external local agents, then layer workflow/Skill generation over the verified task-session protocol.",
+  "next_action": "Build and run a cross-runtime evaluation harness for SK-BROWSER-001, then promote only if the 12-case bridge skill matrix passes. After that, begin Record → Skill / Session → Skill generation.",
   "mvp_manual_acceptance": "deferred by user; remains required before public v0.1 release",
   "updated_on": "2026-09-27"
 }
