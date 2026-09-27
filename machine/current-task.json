@@ -31,9 +31,25 @@
         "beforeinput/input/change event sequence",
         "contenteditable insertion fallback"
       ]
+    },
+    {
+      "id": "local-bridge-foundation",
+      "status": "verified",
+      "verified_sha": "4188403ee33f95cb35e75f48bfcfbdc324fb7182",
+      "ci_run_id": 36333800978,
+      "tests": "extension 73/73 + bridge 3/3",
+      "capabilities": [
+        "loopback daemon and pairing-token auth",
+        "HTTP status/command relay",
+        "MV3 WebSocket client handshake/heartbeat/reconnect",
+        "BrowserCrew safety enforcement on external commands",
+        "Settings connection controls/status",
+        "start/status/stop/restart/logs/pair CLI",
+        "protocol v0.1 docs/contracts"
+      ]
     }
   ],
-  "next_action": "Implement BrowserCrew Local Bridge command/session protocol for external agents. Do not put chrome.debugger in the core package; plan trusted CDP as a separate Advanced/Bridge distribution.",
+  "next_action": "Build a reusable BrowserCrew Bridge skill/adapter for external local agents, then layer workflow/Skill generation over the verified task-session protocol.",
   "mvp_manual_acceptance": "deferred by user; remains required before public v0.1 release",
   "updated_on": "2026-09-27"
 }
