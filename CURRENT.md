@@ -3,93 +3,70 @@
 > Human-readable view. Canonical live state is in `machine/`.
 
 ## Phase
-**v0.2 Watch Me v2 Verified → Skill Compiler — active**
+**v0.2 Skill Compiler Verified → Adaptive Replay — active**
 
-BrowserCrew now uses the full Kimi-class browser-control substrate in the primary extension and has a verified cross-page/multi-tab Watch Me recorder. Manual real-Chrome acceptance remains intentionally deferred by the user while automated development continues.
+BrowserCrew now has verified **Record → Skill** and **Session → Skill** pure compiler contracts. Cross-page/multi-tab Watch Me remains verified, the primary extension retains the full Kimi-class browser-control substrate, and manual real-Chrome acceptance remains intentionally deferred by the user.
 
 ## Latest verified product build
-- Product SHA: `440a27cbe26e00ffb341c844d9ac81d8b5ab2586`
-- GitHub Actions run: `36338958528`
+- Verified code SHA: `595af74d2a947a8ef7cc41d29c0f119cc9798dfa`
+- Product main docs/machine head: `079f4d32e1feb53c6550284354137a1fd126e272`
+- GitHub Actions run: `36341514622`
 - Result: **success**
-- Extension tests: **107/107 PASS across 25 files**
+- Extension tests: **133/133 PASS across 27 files**
 - Local Bridge tests: **3/3 PASS**
 - TypeScript: **PASS**
 - Production build: **PASS**
 - MV3 validation: **PASS**
-- 23-tool contract gate: **PASS**
-- Package/upload: **PASS**
-- Artifact ID: `10938625438`
-- Artifact digest: `sha256:612f168d1ca338e912265c4c92d37d041a2d3801bed2abdb349903c8e702c213`
+- automated BrowserCrew contract gate: **PASS**
+- package/upload: **PASS**
+- Artifact ID: `10938903183`
+- Artifact digest: `sha256:7a9209f88aed5ad3e2ba7ed2496c6d0f0136d8acb0cac738d816ec98865b0d10`
 
-## Watch Me v2 — verified cross-page/multi-tab recorder
+## Record → Skill — verified
+- Input: `SavedWorkflow v3`.
+- Output: portable candidate Skill contract.
+- Raw tab IDs become logical tab refs; source IDs remain provenance only.
+- Recorded text becomes explicit reusable parameters.
+- Navigation/tab-open/tab-activate/tab-close evidence becomes an ordered browser-context plan.
+- `boundary_step_id` is enforced as the maximum demonstrated action boundary.
+- Approval semantics, source provenance and deterministic evaluation cases are preserved.
+- Generated Skills are **candidate only** and cannot auto-promote.
+- Verified compiler SHA: `9a21949333de565e5a77001ce1f39da95e346657`.
 
-### Ownership
-- Recording state lives in the background service worker.
-- Durable active state is stored in `chrome.storage.session`.
-- Content scripts no longer own the recording array; they stream actionable steps to the background.
-- Serialized writes prevent simultaneous navigation/tab/input events from losing data.
-
-### Cross-page behavior
-- Top-frame `webNavigation.onCommitted` produces navigation evidence.
-- `webNavigation.onCompleted` automatically re-arms the content recorder after navigation/reload.
-- The active recording therefore survives document replacement.
-
-### Multi-tab / multi-window behavior
-- Tabs opened by a recorded tab are adopted.
-- Existing or manually created tabs become part of the recording when the user activates them during Watch Me.
-- Newly adopted tabs are armed immediately.
-- Tab-open, activation and closure context is retained.
-- Action steps receive their actual `tab_id`.
-
-### Workflow v3 evidence
-Saved workflows can now contain:
-- actionable click/type/key steps;
-- navigation events;
-- tab-open/tab-activation/tab-close events;
-- inferred reusable text inputs;
-- `boundary_step_id` identifying the last accepted demonstrated action;
-- recording summary with tab/event/drop/size evidence.
-
-### Evidence budgets
-- max actionable steps: **1,000**
-- max browser-context events: **2,000**
-- max tabs: **50**
-- approximate recording evidence budget: **2 MB**
-- oversize evidence increments drop counters but cannot move the workflow boundary.
-
-### Lifecycle durability
-- `WATCH_STATUS` exposes active background recording state.
-- Reopening/reloading the side panel restores the Recording UI.
-- Stop disarms all tracked tabs, flushes pending text entry, and atomically returns the completed recording.
+## Session → Skill — verified
+- `runBrowserTask` emits `BrowserTaskSessionEvidence v1` bound to the real BrowserCrew task-session ID/title.
+- Only successfully executed actions enter the evidence trace.
+- Each action carries before/after browser context, target semantics and approval evidence.
+- Stale failed attempts do **not** advance the learned boundary.
+- Actions denied by approval do **not** enter the learned procedure.
+- Raw task tab IDs become logical refs in the candidate plan.
+- Transient element IDs/semantic refs are evidence hints only; replay must re-observe.
+- Typed values become reusable parameters.
+- Password values and local upload paths become sensitive parameters without retained compiled examples.
+- `boundary_action_id` is the final successful demonstrated action ceiling.
+- Generated Session Skills are **candidate only** and require evaluation before promotion.
 
 ## Browser capability baseline retained
-Primary BrowserCrew still includes:
-- 23 browser tools;
-- debugger/CDP;
-- Accessibility.getFullAXTree backend-node refs;
-- trusted mouse/text/key input;
-- focus emulation;
-- native dialogs;
-- network inspection/response bodies;
-- file upload;
-- PDF export;
-- raw CDP;
-- full Local Bridge surface;
-- provider-neutral model routing and Primary/Fallback.
+Primary BrowserCrew still includes the verified 23-tool runtime, debugger/CDP, AX backend-node refs, trusted input, dialogs, network capture, upload, PDF, raw CDP, bounded read_page, task sessions, full Local Bridge surface, provider-neutral routing and Primary/Fallback.
 
 ## External-agent Skill
 `SK-BROWSER-001` remains **v0.3.0 candidate** with 25 evaluation cases. It is not promoted without cross-runtime evidence.
 
-## Current task
+## Completed task
 **V0.2-SKILL-COMPILER-001 — Record and Session → Skill compiler**
 
+## Current task
+**V0.2-ADAPTIVE-REPLAY-001 — Adaptive multi-tab workflow replay**
+
 ## Next precise action
-Implement **Record → Skill** from verified SavedWorkflow v3:
-1. normalize action + browser-context evidence;
-2. infer reusable variables/inputs;
-3. compile navigation/tab evidence into a portable browser-context plan;
-4. preserve `boundary_step_id` as the demonstrated maximum action boundary;
-5. attach provenance and source workflow evidence;
-6. generate candidate evaluation cases;
-7. register the output as **candidate only**;
-8. then add Session → Skill using BrowserCrew task-session evidence.
+Implement the pure adaptive replay planner/executor:
+1. consume the verified candidate browser plan;
+2. create a fresh logical-tab → BrowserCrew task-tab mapping;
+3. never reuse recorded source tab IDs as live IDs;
+4. resolve recorded target hints from fresh DOM/AX semantic evidence;
+5. bind reusable Skill parameters at runtime;
+6. execute only through the existing BrowserCrew tool surface;
+7. preserve consequential-action approval rules;
+8. stop at the demonstrated boundary;
+9. verify navigation/tab/mutation results;
+10. add deterministic multi-tab, stale-target, parameter and approval tests before UI wiring.

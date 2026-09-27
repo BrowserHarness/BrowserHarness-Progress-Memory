@@ -9,12 +9,12 @@
     {
       "id": "product-runtime",
       "owner": "BrowserCrew/browsercrew",
-      "status": "watch-me-v2-cross-page-verified"
+      "status": "record-session-skill-compiler-verified"
     },
     {
       "id": "skills-workflows",
       "owner": "BrowserCrew/Workflows + BrowserCrew/Skills-",
-      "status": "record-session-skill-compiler-active"
+      "status": "adaptive-multi-tab-replay-active"
     },
     {
       "id": "commercial",
