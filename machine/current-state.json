@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "phase": "v0.2-skill-compiler-verified-adaptive-replay",
+  "phase": "v0.2-adaptive-replay-verified-skill-evaluation",
   "status": "active",
   "current_workstream": "skills-workflows",
-  "current_task_id": "V0.2-ADAPTIVE-REPLAY-001",
+  "current_task_id": "V0.2-SK-BROWSER-EVAL-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
@@ -16,7 +16,8 @@
     "V0.2-WATCH-ME-V2-FIRST-PASS",
     "V0.2-FULL-BROWSER-CONTROL-PARITY",
     "V0.2-WATCH-ME-V2-CROSS-PAGE",
-    "V0.2-SKILL-COMPILER-001"
+    "V0.2-SKILL-COMPILER-001",
+    "V0.2-ADAPTIVE-REPLAY-001"
   ],
   "user_direction": {
     "manual_mvp_acceptance": "deferred by user until later",
@@ -25,18 +26,18 @@
     "reference_strategy": "use the shipped Kimi extension and official WebBridge behavior as reference, independently implement BrowserCrew, then improve with BrowserCrew routing/Bridge/Skills/tests"
   },
   "latest_verified_build": {
-    "head_sha": "595af74d2a947a8ef7cc41d29c0f119cc9798dfa",
-    "github_actions_run_id": 36341514622,
+    "head_sha": "0ad7117761a3f0d65987a6919e4eb3555f595678",
+    "github_actions_run_id": 36342347225,
     "result": "success",
-    "extension_tests": "133/133 passed across 27 files",
+    "extension_tests": "143/143 passed across 29 files",
     "bridge_tests": "3/3 passed",
     "typecheck": "pass",
     "production_build": "pass",
     "mv3_validation": "pass",
     "mvp_contract_gate": "pass",
-    "artifact_id": 10938903183,
+    "artifact_id": 10938894460,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:7a9209f88aed5ad3e2ba7ed2496c6d0f0136d8acb0cac738d816ec98865b0d10"
+    "github_artifact_digest": "sha256:f3eff151ca632562924a91d7a4922033d664718cfcfc0765e259da521c2b8498"
   },
   "verified_v0_2_improvements": [
     "one browser task maps to one task session",
@@ -94,7 +95,15 @@
     "stale failed actions and approval-denied actions cannot enter or advance session Skill evidence",
     "Session to Skill compiler normalizes raw tab ids and transient element refs into portable logical plan references",
     "Session to Skill compiler parameterizes typed text and treats passwords and local upload paths as sensitive inputs without retained compiled examples",
-    "Session derived Skills remain candidate-only and emit deterministic evaluation cases"
+    "Session derived Skills remain candidate-only and emit deterministic evaluation cases",
+    "Watch Me v3 candidate Skills replay through a pure adaptive executor instead of the legacy exact-step macro path",
+    "adaptive replay maps logical tab refs into a fresh BrowserCrew task session and never executes recorded source tab ids",
+    "recorded tab_opened evidence creates a distinct task-owned background tab during adaptive replay",
+    "adaptive target resolution uses fresh observe_page semantics with fresh AX fallback and rejects ambiguous equal-best targets",
+    "recorded element ids and semantic refs are provenance hints only and are never reused as live adaptive selectors",
+    "adaptive replay binds reusable Skill parameters at runtime with recorded defaults available when no override is supplied",
+    "adaptive replay preserves recorded and current-page approval metadata and stops at the demonstrated boundary",
+    "Watch Me v3 Replay in Chat is wired to compiler plus adaptive executor while legacy v2 exact replay remains available"
   ],
   "architecture_decisions": {
     "primary_extension": "full browser-agent capability; no reduced Core/Advanced split",
@@ -111,12 +120,12 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Build adaptive multi-tab workflow replay from verified candidate plan contracts: remap logical tab refs into a fresh BrowserCrew task session, resolve recorded target hints by re-observing current DOM/AX evidence, bind reusable parameters at runtime, preserve BrowserCrew approval gates and the demonstrated boundary, verify after context-changing actions, and never reuse stale source tab/element IDs as executable selectors.",
+  "next_action": "Execute the 25-case SK-BROWSER-001 v0.3.0 candidate Skill evaluation through real external agent runtimes using the Local Bridge, record per-case evidence and failures in BrowserCrew/Skills-, and keep the Skill candidate until cross-runtime execution evidence satisfies the promotion contract. Product unit tests alone do not count as cross-runtime Skill evaluation.",
   "updated_on": "2026-09-27",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
     "audit": "BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md",
     "policy": "use shipped behavior/architecture as reference; independently implement BrowserCrew code"
   },
-  "product_main_head": "079f4d32e1feb53c6550284354137a1fd126e272"
+  "product_main_head": "235f3180150caf7eaef6e5f0e65c28c6fe207c6f"
 }

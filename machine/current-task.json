@@ -1,37 +1,34 @@
 {
   "schema_version": 1,
-  "id": "V0.2-ADAPTIVE-REPLAY-001",
-  "title": "Adaptive multi-tab workflow replay",
-  "owner_repo": "BrowserCrew/browsercrew",
+  "id": "V0.2-SK-BROWSER-EVAL-001",
+  "title": "SK-BROWSER-001 cross-runtime execution evaluation",
+  "owner_repo": "BrowserCrew/Skills-",
   "status": "active",
-  "predecessor_task": "V0.2-SKILL-COMPILER-001",
-  "objective": "Execute verified workflow/candidate Skill plans in a fresh BrowserCrew task session by remapping logical browser context, resolving current semantic targets, binding reusable inputs, preserving approval and demonstrated-boundary rules, and verifying each context-changing action.",
+  "predecessor_task": "V0.2-ADAPTIVE-REPLAY-001",
+  "objective": "Run the existing 25-case BrowserCrew Local Bridge Skill contract through real external agent runtimes, capture per-case execution evidence and failures, and promote SK-BROWSER-001 v0.3.0 only if the registry evaluation/promotion contract is actually satisfied.",
   "prerequisites": [
     {
-      "id": "record-to-skill",
+      "id": "watch-me-v3-adaptive-replay",
       "status": "verified",
-      "verified_sha": "9a21949333de565e5a77001ce1f39da95e346657",
-      "ci_run_id": 36341049518
+      "verified_sha": "0ad7117761a3f0d65987a6919e4eb3555f595678",
+      "ci_run_id": 36342347225,
+      "tests": "extension 143/143 across 29 files + bridge 3/3"
     },
     {
-      "id": "session-to-skill",
-      "status": "verified",
-      "verified_sha": "595af74d2a947a8ef7cc41d29c0f119cc9798dfa",
-      "ci_run_id": 36341514622,
-      "tests": "extension 133/133 across 27 files + bridge 3/3"
+      "id": "sk-browser-001",
+      "status": "candidate",
+      "version": "0.3.0",
+      "evaluation_cases": 25
     }
   ],
   "constraints": [
-    "never execute recorded source tab ids as current tab ids",
-    "never treat recorded element ids or semantic refs as current selectors",
-    "re-observe DOM/AX evidence before target actions and recover stale targets",
-    "map candidate logical tab refs to current BrowserCrew task-session tabs",
-    "bind reusable parameters at execution time",
-    "preserve BrowserCrew consequential-action approval gates",
-    "do not execute actions beyond boundary_step_id or boundary_action_id",
-    "verify after navigation tab changes and mutations",
-    "manual real-Chrome acceptance remains deferred by user"
+    "product-side unit tests do not count as cross-runtime Skill execution evidence",
+    "use the same BrowserCrew Local Bridge and 23-tool runtime rather than a second browser-control implementation",
+    "record evidence per evaluation case and per external runtime",
+    "do not promote the Skill automatically",
+    "APPROVAL_REQUIRED must be surfaced and never bypassed",
+    "manual BrowserCrew MVP acceptance remains separately deferred by the user"
   ],
-  "next_action": "Implement the pure adaptive replay planner/executor contract first: accept the verified Record-to-Skill candidate plan, create a fresh logical-tab-to-session-tab mapping, execute only through existing BrowserCrew tools, resolve each target from fresh semantic evidence, stop at the demonstrated boundary, and add deterministic multi-tab/parameter/approval/stale-target tests before UI wiring.",
+  "next_action": "Refresh SK-BROWSER-001 source evidence to the latest verified BrowserCrew build, add a machine-readable cross-runtime evaluation result contract/runbook in BrowserCrew/Skills-, then execute the 25 cases through each available real external agent runtime. If no external runtime is connected in this environment, record that as the genuine execution blocker after preparing the harness rather than fabricating cross-runtime results.",
   "updated_on": "2026-09-27"
 }
