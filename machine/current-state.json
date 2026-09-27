@@ -10,7 +10,8 @@
     "RUNTIME-001",
     "V0.1.1-INTERNAL-STABILITY",
     "MVP-AUTOMATED-COMPLETE",
-    "V0.2-TASK-SESSIONS-SEMANTIC-SNAPSHOT"
+    "V0.2-TASK-SESSIONS-SEMANTIC-SNAPSHOT",
+    "V0.2-LOCAL-BRIDGE-FOUNDATION"
   ],
   "user_direction": {
     "manual_mvp_acceptance": "deferred by user until later",
@@ -18,17 +19,18 @@
     "reference_strategy": "use proven public/official browser-agent patterns as references, then independently improve BrowserCrew"
   },
   "latest_verified_build": {
-    "head_sha": "35a66fa0fbd5610dcee0f2b023186af080770a49",
-    "github_actions_run_id": 36333144524,
+    "head_sha": "4188403ee33f95cb35e75f48bfcfbdc324fb7182",
+    "github_actions_run_id": 36333800978,
     "result": "success",
-    "tests": "69/69 passed across 15 files",
+    "extension_tests": "73/73 passed across 16 files",
+    "bridge_tests": "3/3 passed",
     "typecheck": "pass",
     "production_build": "pass",
     "mv3_validation": "pass",
     "mvp_contract_gate": "pass",
-    "artifact_id": 10936581674,
+    "artifact_id": 10936717457,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:52821b3d90b4a7ea4f94196b74cb0ca9f820f919688e648f79cddc23a5a723a5"
+    "github_artifact_digest": "sha256:27005c0c93f7f41a1ac4de99434daf8fc49ed335727b99aad65dfc7924a0b517"
   },
   "verified_v0_2_improvements": [
     "one browser task maps to one task session",
@@ -39,7 +41,15 @@
     "stable semantic @e refs and compact accessibility-style snapshots",
     "native value setter for framework-controlled form fields",
     "beforeinput/input/change sequencing",
-    "stronger contenteditable rich-editor insertion fallback"
+    "stronger contenteditable rich-editor insertion fallback",
+    "loopback-only Local Bridge daemon",
+    "pairing-token authenticated command relay",
+    "extension WebSocket handshake heartbeat and reconnect",
+    "bridge commands mapped to BrowserCrew task sessions",
+    "bridge risky click/Enter actions return APPROVAL_REQUIRED",
+    "Local Agent Bridge settings and live status",
+    "bridge CLI start/status/stop/restart/logs/pair",
+    "machine-readable Local Bridge protocol v0.1"
   ],
   "architecture_decisions": {
     "core_extension": "least-privilege",
@@ -52,6 +62,6 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Design and implement the BrowserCrew Local Bridge protocol for external agents, preserving task-session ownership and semantic refs. Keep raw CDP/debugger in a separately disclosed Advanced/Bridge distribution.",
+  "next_action": "Create reusable external-agent adapters/skills (starting with a generic BrowserCrew Bridge skill usable by Hermes/Codex/Claude-class local agents), then add workflow/Skill generation on top of the stable session protocol.",
   "updated_on": "2026-09-27"
 }
