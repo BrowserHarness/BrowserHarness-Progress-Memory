@@ -1,41 +1,57 @@
 {
   "schema_version": 1,
-  "phase": "mvp-automated-complete-manual-pending",
-  "status": "ready",
+  "phase": "v0.2-browser-reliability-bridge-foundation",
+  "status": "active",
   "current_workstream": "product-runtime",
-  "current_task_id": "MVP-MANUAL-001",
+  "current_task_id": "V0.2-RELIABILITY-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
     "RUNTIME-001",
     "V0.1.1-INTERNAL-STABILITY",
-    "MVP-AUTOMATED-COMPLETE"
+    "MVP-AUTOMATED-COMPLETE",
+    "V0.2-TASK-SESSIONS-SEMANTIC-SNAPSHOT"
   ],
-  "strategy_change": {
-    "user_time_policy": "internal verification first; manual user testing only after automated MVP completion",
-    "stability_gate": "BrowserCrew/browsercrew/docs/qa/STABILITY-GATE.md",
-    "automated_gate": "BrowserCrew/browsercrew/docs/qa/MVP-AUTOMATED-GATE.md",
-    "manual_gate": "BrowserCrew/browsercrew/docs/qa/MVP-SMOKE-TEST.md"
+  "user_direction": {
+    "manual_mvp_acceptance": "deferred by user until later",
+    "post_mvp_development": "explicitly reopened",
+    "reference_strategy": "use proven public/official browser-agent patterns as references, then independently improve BrowserCrew"
   },
   "latest_verified_build": {
-    "head_sha": "44fe5752af1f7956ec1fcf59a1a2604cbf33a84c",
-    "github_actions_run_id": 36262805588,
+    "head_sha": "35a66fa0fbd5610dcee0f2b023186af080770a49",
+    "github_actions_run_id": 36333144524,
     "result": "success",
-    "tests": "63/63 passed across 14 files",
+    "tests": "69/69 passed across 15 files",
     "typecheck": "pass",
     "production_build": "pass",
     "mv3_validation": "pass",
     "mvp_contract_gate": "pass",
-    "artifact_id": 10912383198,
+    "artifact_id": 10936581674,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:76c7b5f01c436d07329170a9ab8c79f4e2026edf5f1f14f83c3a1eaaefdd5d3a"
+    "github_artifact_digest": "sha256:52821b3d90b4a7ea4f94196b74cb0ca9f820f919688e648f79cddc23a5a723a5"
+  },
+  "verified_v0_2_improvements": [
+    "one browser task maps to one task session",
+    "starting user tab is borrowed rather than owned",
+    "BrowserCrew-created tabs are task-owned and Chrome-grouped",
+    "borrowed/unrelated tabs cannot be closed by task-session cleanup",
+    "session-scoped list_tabs and find_tab tools",
+    "stable semantic @e refs and compact accessibility-style snapshots",
+    "native value setter for framework-controlled form fields",
+    "beforeinput/input/change sequencing",
+    "stronger contenteditable rich-editor insertion fallback"
+  ],
+  "architecture_decisions": {
+    "core_extension": "least-privilege",
+    "cdp_debugger": "not added to core because Chrome does not allow debugger as an optional permission",
+    "trusted_input_path": "separate Advanced/Bridge distribution"
   },
   "mvp_status": {
     "implementation": "complete",
     "automated_testing": "complete",
-    "manual_real_chrome_acceptance": "pending",
+    "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "When the user is ready, run the focused real-Chrome acceptance gate in BrowserCrew/browsercrew/docs/qa/MVP-SMOKE-TEST.md. Do not start v0.2 feature work before that result is known.",
-  "updated_on": "2026-09-26"
+  "next_action": "Design and implement the BrowserCrew Local Bridge protocol for external agents, preserving task-session ownership and semantic refs. Keep raw CDP/debugger in a separately disclosed Advanced/Bridge distribution.",
+  "updated_on": "2026-09-27"
 }
