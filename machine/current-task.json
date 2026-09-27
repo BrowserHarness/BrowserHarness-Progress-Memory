@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "id": "V0.2-RELIABILITY-001",
-  "title": "Source-audited browser reliability and Watch Me v2",
+  "id": "V0.2-SKILL-COMPILER-001",
+  "title": "Record and Session to Skill compiler",
   "owner_repo": "BrowserCrew/browsercrew",
   "status": "active",
-  "objective": "Match and improve the proven Kimi-class browser-agent runtime while preserving BrowserCrew model neutrality, task sessions, Bridge, approvals, and stronger automated evaluation.",
+  "objective": "Compile verified Watch Me v3 and BrowserCrew session evidence into portable candidate Skills without losing browser context, inferred inputs, provenance, or the demonstrated workflow boundary.",
   "completed_slices": [
     {
       "id": "task-sessions-semantic-snapshot",
@@ -121,9 +121,31 @@
         "PDF export/download",
         "23-tool Local Bridge surface"
       ]
+    },
+    {
+      "id": "watch-me-v2-cross-page-multi-tab",
+      "status": "verified",
+      "verified_sha": "440a27cbe26e00ffb341c844d9ac81d8b5ab2586",
+      "ci_run_id": 36338958528,
+      "tests": "extension 107/107 across 25 files + bridge 3/3",
+      "artifact_id": 10938625438,
+      "capabilities": [
+        "background-owned recording persisted in chrome.storage.session",
+        "stateless content-script step streaming",
+        "cross-navigation/reload recording",
+        "automatic content recorder re-arm",
+        "webNavigation top-frame context",
+        "new-tab/opener adoption",
+        "user-selected existing tab/window adoption",
+        "tab activation/closure evidence",
+        "serialized recording writes",
+        "bounded evidence storage",
+        "SavedWorkflow v3 events + recording summary + boundary_step_id",
+        "side-panel WATCH_STATUS rehydration"
+      ]
     }
   ],
-  "next_action": "Implement cross-page/multi-tab Watch Me recording before Skill compilation. Use webNavigation/tab/window events now available in the primary permission envelope; keep recording state in the background runtime, collect steps incrementally, budget evidence, and preserve the last recorded step as the workflow boundary.",
+  "next_action": "Implement the Record → Skill compiler first: normalize SavedWorkflow v3 into a candidate Skill contract, infer reusable inputs, convert navigation/tab events into a browser-context plan, preserve boundary_step_id as the maximum demonstrated action boundary, emit provenance/evaluation cases, and register only as candidate. Then add Session → Skill.",
   "mvp_manual_acceptance": "deferred by user; remains required before public v0.1 release",
   "updated_on": "2026-09-27"
 }
