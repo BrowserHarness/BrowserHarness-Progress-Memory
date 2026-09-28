@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "phase": "v0.2-kimi-parity-hardening-verified-site-skill-v1",
+  "phase": "v0.2-site-skill-v1-verified-kimi-interaction-parity",
   "status": "active",
   "current_workstream": "skills-workflows",
-  "current_task_id": "V0.2-SITE-SKILL-001",
+  "current_task_id": "V0.2-KIMI-INTERACTION-PARITY-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
@@ -21,7 +21,8 @@
     "V0.2-TRUSTED-INPUT-HARDENING-001",
     "V0.2-CDP-SCREENSHOT-001",
     "V0.2-FIND-EVALUATE-001",
-    "V0.2-NETWORK-EVIDENCE-001"
+    "V0.2-NETWORK-EVIDENCE-001",
+    "V0.2-SITE-SKILL-001"
   ],
   "user_direction": {
     "manual_mvp_acceptance": "deferred by user until later",
@@ -30,18 +31,18 @@
     "reference_strategy": "use the shipped Kimi extension and official WebBridge behavior as reference, independently implement BrowserCrew, then improve with BrowserCrew routing/Bridge/Skills/tests"
   },
   "latest_verified_build": {
-    "head_sha": "3b6c7567f5f20124bedbe30abdac45005c777756",
-    "github_actions_run_id": 36367934722,
+    "head_sha": "bbfed3443eea22df9b0115407519836263032469",
+    "github_actions_run_id": 36369232137,
     "result": "success",
-    "extension_tests": "160/160 passed across 32 files",
+    "extension_tests": "181/181 passed across 38 files",
     "bridge_tests": "3/3 passed",
     "typecheck": "pass",
     "production_build": "pass",
     "mv3_validation": "pass",
     "mvp_contract_gate": "pass",
-    "artifact_id": 10947872942,
+    "artifact_id": 10947964449,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:7329bb00a869ff475f1e5bc270446d945a44b5624e6353e1bab46b353b5a1923"
+    "github_artifact_digest": "sha256:e0b48d34eecb612ef4774b9918f3bfedb89b2c2479b1034cb3cc22ffe82bc9ea"
   },
   "verified_v0_2_improvements": [
     "one browser task maps to one task session",
@@ -116,7 +117,19 @@
     "bounded evaluate provides JSON-safe Runtime.evaluate page inspection with output limits",
     "network capture merges requestWillBeSentExtraInfo wire headers",
     "network capture recovers missing POST data with Network.getRequestPostData",
-    "Local Bridge exposes the same 25-tool full-power runtime"
+    "Local Bridge exposes the same 25-tool full-power runtime",
+    "normal agent loop retries runtime-discovered APPROVAL_REQUIRED exactly once with privileged extension-page proof",
+    "native select_option resolves a fresh AX ref and dispatches input/change after selection",
+    "Site Skill v1 create persists candidate Skills from fresh AX form and optional network evidence",
+    "Site Skill evidence preserves useful header/body key structure without retaining secret request values",
+    "Site Skill verify records fresh origin form field and submit drift checks",
+    "Site Skill run re-verifies before execution and resolves fresh semantic targets per recipe step",
+    "Site Skill runner rejects ambiguous targets instead of guessing",
+    "Site Skill run supports text select upload toggle and submit operations",
+    "Site Skill non-GET or risky submission requires BrowserCrew privileged approval proof",
+    "Site Skill run parameters are redacted from BrowserTaskSessionEvidence",
+    "Site Skill library supports list get and delete while remaining candidate-only",
+    "Local Bridge exposes the same 27-tool full-power runtime"
   ],
   "architecture_decisions": {
     "primary_extension": "full browser-agent capability; no reduced Core/Advanced split",
@@ -133,12 +146,12 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Implement Site -> Skill v1 as a usable vertical slice from fresh AX/evaluate/network evidence into a candidate executable Skill recipe with inferred parameters, provenance, verification evidence and a hard safety boundary. Keep SK-BROWSER-001 cross-runtime evaluation as a parallel external-runtime blocker and never fabricate it.",
+  "next_action": "Implement Kimi-reference interaction parity: hover, drag/drop, richer key chords/sequences/modifiers, and await-user-action/human handoff, each through the same BrowserCrew/Local Bridge runtime and deterministic CI contract.",
   "updated_on": "2026-09-28",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
     "audit": "BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md",
     "policy": "functionality first; use shipped Kimi behavior/architecture as proven reference, independently implement BrowserCrew code, then exceed it"
   },
-  "product_main_head": "3b6c7567f5f20124bedbe30abdac45005c777756"
+  "product_main_head": "bbfed3443eea22df9b0115407519836263032469"
 }
