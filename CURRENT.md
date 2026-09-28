@@ -3,61 +3,57 @@
 > Human-readable view. Canonical live state is in `machine/`.
 
 ## Phase
-**v0.2 Kimi-reference parity hardening verified → Site → Skill v1 — active**
+**v0.2 Site → Skill v1 verified → Kimi-reference interaction parity — active**
 
-BrowserCrew now has verified Record → Skill, Session → Skill, Watch Me v3 adaptive replay, privileged trusted-input approval proof, Kimi-style trusted-click verification, background/full-page/element CDP screenshots, semantic AX `find`, bounded page `evaluate`, and high-fidelity network request evidence. Manual real-Chrome MVP acceptance remains intentionally deferred by the user.
+Manual real-Chrome MVP acceptance remains intentionally deferred by the user. BrowserCrew development continues with functionality-first competitor parity/improvement using Kimi 2.0.22 as a shipped behavioral reference while independently implementing BrowserCrew code.
 
 ## Latest verified product build
-- Verified code SHA: `3b6c7567f5f20124bedbe30abdac45005c777756`
-- GitHub Actions run: `36367934722`
+- Verified code SHA: `bbfed3443eea22df9b0115407519836263032469`
+- GitHub Actions run: `36369232137`
 - Result: **success**
-- Extension tests: **160/160 PASS across 32 files**
+- Extension tests: **181/181 PASS across 38 files**
 - Local Bridge tests: **3/3 PASS**
-- TypeScript: **PASS**
-- Production build: **PASS**
-- MV3 validation: **PASS**
-- automated BrowserCrew contract gate: **PASS**
-- package/upload: **PASS**
-- Artifact ID: `10947872942`
-- Artifact digest: `sha256:7329bb00a869ff475f1e5bc270446d945a44b5624e6353e1bab46b353b5a1923`
+- TypeScript/build/MV3/automated contract/package gates: **PASS**
+- Artifact ID: `10947964449`
+- Artifact digest: `sha256:e0b48d34eecb612ef4774b9918f3bfedb89b2c2479b1034cb3cc22ffe82bc9ea`
 
-## Newly verified Kimi-reference reliability work
-- Adaptive replay can carry one-shot approval proof only from the BrowserCrew extension page; Local Bridge/content pages cannot mint it.
-- Newly risky AX-only trusted actions can prompt and retry exactly once after explicit approval.
-- Trusted click rejects an occluded target with an `elementFromPoint` hit test.
-- Trusted click verifies pointer/mouse delivery to the intended target before reporting success.
-- Screenshot uses `Page.captureScreenshot` for background viewport, full-page and semantic-element clip modes.
-- `find` searches a fresh accessibility tree by semantic text/role.
-- `evaluate` exposes bounded JSON-safe page-context inspection while raw CDP remains available.
-- Network capture merges `Network.requestWillBeSentExtraInfo` wire headers and recovers omitted POST bodies through `Network.getRequestPostData`.
-- Local Bridge/browser runtime surface is now **25 tools**.
-
-## Skill state
-- Record → Skill verified at `9a21949333de565e5a77001ce1f39da95e346657`.
-- Session → Skill verified at `595af74d2a947a8ef7cc41d29c0f119cc9798dfa`.
-- Watch Me v3 adaptive replay remains verified.
-- Generated Skills remain candidate-only and require evaluation before promotion.
-- `SK-BROWSER-001` remains **v0.3.0 candidate** with 25 evaluation cases.
+## Verified in this milestone
+- Privileged approval proof works in adaptive replay and the normal agent loop; Local Bridge/web tabs cannot mint it.
+- Trusted click rejects occluded targets and proves pointer/mouse delivery before success.
+- CDP screenshots support background viewport, full-page and semantic-element capture.
+- Fresh AX `find` and bounded `evaluate` are available.
+- Network evidence merges ExtraInfo headers and recovers omitted POST bodies.
+- Native `select_option` is available from a fresh AX ref.
+- Site → Skill v1 is functional:
+  - `create` analyzes fresh AX/form/network evidence and persists candidate Skills.
+  - request/header secret values are not retained in Site Skill evidence.
+  - `verify` detects origin/form/field/submit drift.
+  - `run` re-verifies immediately, resolves fresh semantic targets, rejects ambiguous matches and executes text/select/upload/toggle/submit recipes.
+  - non-GET/risky submission uses the extension-only approval proof.
+  - run parameter values are redacted from session evidence.
+  - `list/get/delete` candidate library operations are available.
+  - successful execution does not auto-promote the Skill.
+- Primary runtime/Local Bridge surface: **27 tools**.
 
 ## Parallel blocker
-The actual 25-case `SK-BROWSER-001` cross-runtime evaluation still requires a real external agent runtime paired to BrowserCrew Local Bridge. Product unit tests do not count and results must not be fabricated. This blocker no longer stops independent product engineering.
+`SK-BROWSER-001` v0.3.0 remains a 25-case candidate evaluation requiring a real external agent runtime paired to Local Bridge. Product tests do not count and cross-runtime results must never be fabricated. This does not block independent engineering.
 
 ## Current task
-**V0.2-SITE-SKILL-001 — Site → Skill v1**
+**V0.2-KIMI-INTERACTION-PARITY-001 — Kimi-reference interaction parity**
 
 ## Next precise action
-Build the first usable Site → Skill vertical slice using the newly verified primitives:
-1. collect fresh site identity + AX evidence;
-2. inspect forms/interactive structure with bounded `evaluate`;
-3. capture relevant high-fidelity network evidence;
-4. normalize this into inspectable SiteSkillEvidence;
-5. compile a candidate executable Skill recipe with parameters, provenance and safety boundary;
-6. verify the recipe/evidence contract with deterministic tests;
-7. keep the generated Skill candidate-only; never auto-promote.
+Implement the next proven browser primitives:
+1. hover using real CDP pointer placement;
+2. drag/drop with real pointer sequence and post-action verification;
+3. richer key chords/sequences/modifiers;
+4. await-user-action/human handoff for login, CAPTCHA, 2FA or explicit manual steps;
+5. register each capability in the same BrowserCrew/Bridge contract and deterministic test gate.
 
-## Standing product direction
+After interaction parity, move to versioned Skill revisions, evaluation comparison, explicit promotion and rollback so BrowserCrew exceeds Kimi's opaque refinement model.
+
+## Standing direction
 - Functionality first.
-- Kimi 2.0.22 is a proven competitor/reference baseline, not BrowserCrew's ceiling.
-- Use its shipped behavior/architecture to shorten discovery and testing, independently implement BrowserCrew, and improve reliability/autonomy/reuse.
+- Kimi is a proven baseline, not the ceiling.
 - Do not weaken browser capability merely to minimize permissions.
-- Preserve BrowserCrew's provider neutrality, task-session ownership, explicit approvals, deterministic tests, Skill evaluation/versioning and future rollback.
+- Independently implement BrowserCrew code; use shipped competitor behavior to avoid rediscovering solved browser-agent problems.
+- Preserve BrowserCrew's stronger task ownership, approvals, deterministic testing, provenance, candidate/evaluation lifecycle, versioning and rollback direction.
