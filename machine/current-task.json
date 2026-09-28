@@ -1,34 +1,55 @@
 {
   "schema_version": 1,
-  "id": "V0.2-SK-BROWSER-EVAL-001",
-  "title": "SK-BROWSER-001 cross-runtime execution evaluation",
-  "owner_repo": "BrowserCrew/Skills-",
+  "id": "V0.2-SITE-SKILL-001",
+  "title": "Site -> Skill v1",
+  "owner_repo": "BrowserCrew/browsercrew",
   "status": "active",
-  "predecessor_task": "V0.2-ADAPTIVE-REPLAY-001",
-  "objective": "Run the existing 25-case BrowserCrew Local Bridge Skill contract through real external agent runtimes, capture per-case execution evidence and failures, and promote SK-BROWSER-001 v0.3.0 only if the registry evaluation/promotion contract is actually satisfied.",
+  "predecessor_task": "V0.2-NETWORK-EVIDENCE-001",
+  "objective": "Build the first usable Kimi-reference Site -> Skill vertical slice: inspect a live site's semantic/form/network behavior with BrowserCrew's own runtime, normalize evidence, and emit an inspectable candidate executable Skill recipe without copying competitor code or auto-promoting generated behavior.",
   "prerequisites": [
     {
-      "id": "watch-me-v3-adaptive-replay",
+      "id": "adaptive-replay",
       "status": "verified",
-      "verified_sha": "0ad7117761a3f0d65987a6919e4eb3555f595678",
-      "ci_run_id": 36342347225,
-      "tests": "extension 143/143 across 29 files + bridge 3/3"
+      "verified_sha": "3b6c7567f5f20124bedbe30abdac45005c777756",
+      "ci_run_id": 36367934722
     },
     {
-      "id": "sk-browser-001",
-      "status": "candidate",
-      "version": "0.3.0",
-      "evaluation_cases": 25
+      "id": "semantic-find",
+      "status": "verified"
+    },
+    {
+      "id": "bounded-evaluate",
+      "status": "verified"
+    },
+    {
+      "id": "high-fidelity-network-evidence",
+      "status": "verified"
+    },
+    {
+      "id": "cdp-screenshot",
+      "status": "verified"
+    },
+    {
+      "id": "trusted-click-verification",
+      "status": "verified"
     }
   ],
   "constraints": [
-    "product-side unit tests do not count as cross-runtime Skill execution evidence",
-    "use the same BrowserCrew Local Bridge and 23-tool runtime rather than a second browser-control implementation",
-    "record evidence per evaluation case and per external runtime",
-    "do not promote the Skill automatically",
-    "APPROVAL_REQUIRED must be surfaced and never bypassed",
+    "functionality first; Kimi 2.0.22 is the proven reference baseline, not the ceiling",
+    "independently implement BrowserCrew code; do not copy Kimi source",
+    "fresh AX/network/evaluate evidence must remain inspectable and bounded",
+    "generated Skills are candidate-only and never auto-promote",
+    "preserve BrowserCrew approval semantics and explicit demonstrated/verified boundaries",
+    "do not let the externally blocked SK-BROWSER-001 cross-runtime evaluation stop independent Site -> Skill engineering",
     "manual BrowserCrew MVP acceptance remains separately deferred by the user"
   ],
-  "next_action": "Refresh SK-BROWSER-001 source evidence to the latest verified BrowserCrew build, add a machine-readable cross-runtime evaluation result contract/runbook in BrowserCrew/Skills-, then execute the 25 cases through each available real external agent runtime. If no external runtime is connected in this environment, record that as the genuine execution blocker after preparing the harness rather than fabricating cross-runtime results.",
-  "updated_on": "2026-09-27"
+  "deliverables": [
+    "SiteSkillEvidence v1",
+    "site analyzer/collector using BrowserCrew browser tools",
+    "candidate recipe compiler with inferred parameters and provenance",
+    "deterministic verification tests",
+    "first product/runtime entry point for creating a candidate Skill from a site"
+  ],
+  "next_action": "Implement the evidence/recipe contract and collector/compiler first, then wire the smallest product entry point that can create a candidate Site Skill from the current task tab.",
+  "updated_on": "2026-09-28"
 }
