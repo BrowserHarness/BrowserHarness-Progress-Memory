@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "phase": "v0.2-site-skill-v1-verified-kimi-interaction-parity",
+  "phase": "v0.2-kimi-interaction-parity-verified-skill-lifecycle",
   "status": "active",
   "current_workstream": "skills-workflows",
-  "current_task_id": "V0.2-KIMI-INTERACTION-PARITY-001",
+  "current_task_id": "V0.2-SKILL-LIFECYCLE-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
@@ -22,7 +22,8 @@
     "V0.2-CDP-SCREENSHOT-001",
     "V0.2-FIND-EVALUATE-001",
     "V0.2-NETWORK-EVIDENCE-001",
-    "V0.2-SITE-SKILL-001"
+    "V0.2-SITE-SKILL-001",
+    "V0.2-KIMI-INTERACTION-PARITY-001"
   ],
   "user_direction": {
     "manual_mvp_acceptance": "deferred by user until later",
@@ -31,18 +32,19 @@
     "reference_strategy": "use the shipped Kimi extension and official WebBridge behavior as reference, independently implement BrowserCrew, then improve with BrowserCrew routing/Bridge/Skills/tests"
   },
   "latest_verified_build": {
-    "head_sha": "bbfed3443eea22df9b0115407519836263032469",
-    "github_actions_run_id": 36369232137,
+    "head_sha": "4153f5292d485abb382e31280d2c5a960e2b83f1",
+    "verified_code_sha": "0204ecbf78b5be694267cf7a9dc0ea04afaeb9f4",
+    "github_actions_run_id": 36371599324,
     "result": "success",
-    "extension_tests": "181/181 passed across 38 files",
+    "extension_tests": "201/201 passed across 42 files",
     "bridge_tests": "3/3 passed",
     "typecheck": "pass",
     "production_build": "pass",
     "mv3_validation": "pass",
     "mvp_contract_gate": "pass",
-    "artifact_id": 10947964449,
+    "artifact_id": 10949531602,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:e0b48d34eecb612ef4774b9918f3bfedb89b2c2479b1034cb3cc22ffe82bc9ea"
+    "github_artifact_digest": "sha256:ab86431440c0f7829562d63e45c388376393f83a6e2b11e92e336cff075e1560"
   },
   "verified_v0_2_improvements": [
     "one browser task maps to one task session",
@@ -129,7 +131,16 @@
     "Site Skill non-GET or risky submission requires BrowserCrew privileged approval proof",
     "Site Skill run parameters are redacted from BrowserTaskSessionEvidence",
     "Site Skill library supports list get and delete while remaining candidate-only",
-    "Local Bridge exposes the same 27-tool full-power runtime"
+    "Local Bridge exposes the same 27-tool full-power runtime",
+    "real CDP hover verifies the fresh semantic target actually enters hover state",
+    "drag/drop hit-tests source and target, dispatches a held-button pointer path and verifies source-down plus target-up delivery",
+    "send_keys supports OS-aware Mod, Alt/Ctrl/Cmd/Meta/Shift, named navigation keys, F1-F12, chords, ordered sequences and repeat 1-100",
+    "await_user_action is an orchestrator-only manual handoff for login CAPTCHA/human verification 2FA and explicit consent",
+    "manual handoff waits 10 seconds for natural navigation before takeover UI and keeps navigation as a live resume path",
+    "manual handoff continuation always re-observes fresh page state before the planner resumes",
+    "manual handoffs are non-executable BrowserTaskSessionEvidence and do not advance boundary_action_id",
+    "Session to Skill compiler rejects sessions crossing a manual-handoff precondition",
+    "built-in planner exposes 31 tools while Local Bridge intentionally remains at 30 because await_user_action is orchestrator-only"
   ],
   "architecture_decisions": {
     "primary_extension": "full browser-agent capability; no reduced Core/Advanced split",
@@ -146,12 +157,12 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Implement Kimi-reference interaction parity: hover, drag/drop, richer key chords/sequences/modifiers, and await-user-action/human handoff, each through the same BrowserCrew/Local Bridge runtime and deterministic CI contract.",
+  "next_action": "Implement versioned Site Skill storage with immutable revisions, backward-compatible v1 migration/read, latest/history lookup and an explicit active-revision pointer; do not expose promotion until evaluation evidence is wired.",
   "updated_on": "2026-09-28",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
     "audit": "BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md",
     "policy": "functionality first; use shipped Kimi behavior/architecture as proven reference, independently implement BrowserCrew code, then exceed it"
   },
-  "product_main_head": "bbfed3443eea22df9b0115407519836263032469"
+  "product_main_head": "4153f5292d485abb382e31280d2c5a960e2b83f1"
 }
