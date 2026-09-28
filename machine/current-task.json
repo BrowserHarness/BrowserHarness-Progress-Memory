@@ -1,47 +1,52 @@
 {
   "schema_version": 1,
-  "id": "V0.2-KIMI-INTERACTION-PARITY-001",
-  "title": "Kimi-reference interaction parity",
+  "id": "V0.2-SKILL-LIFECYCLE-001",
+  "title": "Versioned Skill lifecycle + refinement",
   "owner_repo": "BrowserCrew/browsercrew",
   "status": "active",
-  "predecessor_task": "V0.2-SITE-SKILL-001",
-  "objective": "Close the next proven Kimi browser-interaction gaps without reducing BrowserCrew capability: real hover, drag/drop, richer keyboard chords/sequences/modifiers, and explicit await-user-action/human handoff.",
+  "predecessor_task": "V0.2-KIMI-INTERACTION-PARITY-001",
+  "objective": "Make learned Skills inspectable and safely improvable through immutable revisions, evaluation comparison, explicit promotion and rollback instead of destructive or opaque mutation.",
   "prerequisites": [
     {
-      "id": "site-skill-v1",
+      "id": "kmi-interaction-parity",
       "status": "verified",
-      "verified_sha": "bbfed3443eea22df9b0115407519836263032469",
-      "ci_run_id": 36369232137,
-      "tests": "181/181 extension across 38 files + 3/3 Bridge"
+      "verified_sha": "0204ecbf78b5be694267cf7a9dc0ea04afaeb9f4",
+      "ci_run_id": 36371442796,
+      "tests": "201/201 extension across 42 files + 3/3 Bridge"
     },
     {
-      "id": "trusted-click-verification",
+      "id": "site-skill-v1",
       "status": "verified"
     },
     {
-      "id": "runtime-approval-proof",
+      "id": "record-session-skill-compilers",
       "status": "verified"
     },
     {
-      "id": "select-option",
+      "id": "adaptive-replay",
       "status": "verified"
     }
   ],
   "constraints": [
-    "functionality first; Kimi shipped behavior is the baseline reference",
-    "independently implement BrowserCrew code rather than copying competitor source",
-    "use real CDP/browser behavior and verify delivery/state rather than returning optimistic success",
-    "keep primary and Local Bridge tool contracts aligned",
-    "preserve BrowserCrew approvals and task-session ownership",
-    "manual MVP acceptance remains separately deferred"
+    "candidate revisions are immutable evidence snapshots",
+    "no automatic promotion",
+    "promotion requires explicit evaluation evidence",
+    "active revision must be explicit and rollback-capable",
+    "existing Site Skill candidate storage must remain readable/migratable",
+    "successful and failed runs may become refinement evidence but never opaque self-modification",
+    "manual-handoff preconditions must never be silently compiled away",
+    "SK-BROWSER-001 cross-runtime evaluation remains a parallel real-runtime blocker"
   ],
   "deliverables": [
-    "hover tool with real CDP pointer placement",
-    "drag/drop tool with deterministic pointer sequence and verification",
-    "richer key chord/sequence/modifier input",
-    "await_user_action human handoff primitive",
-    "tests and machine/human protocol updates"
+    "versioned Site Skill library schema",
+    "immutable revision history with parent links",
+    "backward-compatible migration/read of v1 candidates",
+    "latest revision and history APIs",
+    "explicit active-revision pointer",
+    "evaluation comparison contract",
+    "explicit promotion and rollback",
+    "refinement candidates derived from inspectable execution evidence"
   ],
-  "next_action": "Implement hover first using the existing fresh semantic ref + box-model path, then layer drag/drop on the same verified pointer geometry.",
+  "next_action": "Implement the versioned Site Skill store first: immutable revision records, legacy v1 migration/read, latest/history lookup and active_revision_id data model without enabling promotion yet.",
   "updated_on": "2026-09-28"
 }
