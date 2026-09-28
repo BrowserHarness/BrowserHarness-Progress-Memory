@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "phase": "v0.2-adaptive-replay-verified-skill-evaluation",
+  "phase": "v0.2-kimi-parity-hardening-verified-site-skill-v1",
   "status": "active",
   "current_workstream": "skills-workflows",
-  "current_task_id": "V0.2-SK-BROWSER-EVAL-001",
+  "current_task_id": "V0.2-SITE-SKILL-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
@@ -17,7 +17,11 @@
     "V0.2-FULL-BROWSER-CONTROL-PARITY",
     "V0.2-WATCH-ME-V2-CROSS-PAGE",
     "V0.2-SKILL-COMPILER-001",
-    "V0.2-ADAPTIVE-REPLAY-001"
+    "V0.2-ADAPTIVE-REPLAY-001",
+    "V0.2-TRUSTED-INPUT-HARDENING-001",
+    "V0.2-CDP-SCREENSHOT-001",
+    "V0.2-FIND-EVALUATE-001",
+    "V0.2-NETWORK-EVIDENCE-001"
   ],
   "user_direction": {
     "manual_mvp_acceptance": "deferred by user until later",
@@ -26,18 +30,18 @@
     "reference_strategy": "use the shipped Kimi extension and official WebBridge behavior as reference, independently implement BrowserCrew, then improve with BrowserCrew routing/Bridge/Skills/tests"
   },
   "latest_verified_build": {
-    "head_sha": "0ad7117761a3f0d65987a6919e4eb3555f595678",
-    "github_actions_run_id": 36342347225,
+    "head_sha": "3b6c7567f5f20124bedbe30abdac45005c777756",
+    "github_actions_run_id": 36367934722,
     "result": "success",
-    "extension_tests": "143/143 passed across 29 files",
+    "extension_tests": "160/160 passed across 32 files",
     "bridge_tests": "3/3 passed",
     "typecheck": "pass",
     "production_build": "pass",
     "mv3_validation": "pass",
     "mvp_contract_gate": "pass",
-    "artifact_id": 10938894460,
+    "artifact_id": 10947872942,
     "artifact_name": "browsercrew-extension",
-    "github_artifact_digest": "sha256:f3eff151ca632562924a91d7a4922033d664718cfcfc0765e259da521c2b8498"
+    "github_artifact_digest": "sha256:7329bb00a869ff475f1e5bc270446d945a44b5624e6353e1bab46b353b5a1923"
   },
   "verified_v0_2_improvements": [
     "one browser task maps to one task session",
@@ -62,7 +66,6 @@
     "bounded read_page extraction with continuation/frame/stall/feed signals",
     "Watch Me v2 richer locators input debouncing key steps inferred inputs and reinjection safety",
     "task tabs stay backgrounded by default and find_tab does not steal user focus",
-    "background-task screenshot fails explicitly instead of capturing the wrong foreground tab",
     "Kimi 2.0.22 reference architecture audit recorded for clean-room acceleration",
     "primary BrowserCrew manifest now uses full browser-agent permission envelope including debugger webNavigation webRequest unlimitedStorage downloads windows and <all_urls>",
     "Accessibility.getFullAXTree backend-node semantic refs",
@@ -103,7 +106,17 @@
     "recorded element ids and semantic refs are provenance hints only and are never reused as live adaptive selectors",
     "adaptive replay binds reusable Skill parameters at runtime with recorded defaults available when no override is supplied",
     "adaptive replay preserves recorded and current-page approval metadata and stops at the demonstrated boundary",
-    "Watch Me v3 Replay in Chat is wired to compiler plus adaptive executor while legacy v2 exact replay remains available"
+    "Watch Me v3 Replay in Chat is wired to compiler plus adaptive executor while legacy v2 exact replay remains available",
+    "privileged adaptive replay approval proof is accepted only from same-extension UI pages and cannot be minted by Local Bridge or web tabs",
+    "newly risky AX-only trusted actions can request explicit approval and retry exactly once with privileged proof",
+    "trusted CDP click performs elementFromPoint occlusion verification before input dispatch",
+    "trusted CDP click proves pointerdown/mousedown delivery to the intended target before reporting success",
+    "screenshot uses Page.captureScreenshot for background viewport full-page and semantic-element clipping",
+    "semantic find searches a freshly captured accessibility tree by query and role",
+    "bounded evaluate provides JSON-safe Runtime.evaluate page inspection with output limits",
+    "network capture merges requestWillBeSentExtraInfo wire headers",
+    "network capture recovers missing POST data with Network.getRequestPostData",
+    "Local Bridge exposes the same 25-tool full-power runtime"
   ],
   "architecture_decisions": {
     "primary_extension": "full browser-agent capability; no reduced Core/Advanced split",
@@ -120,12 +133,12 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Execute the 25-case SK-BROWSER-001 v0.3.0 candidate Skill evaluation through real external agent runtimes using the Local Bridge, record per-case evidence and failures in BrowserCrew/Skills-, and keep the Skill candidate until cross-runtime execution evidence satisfies the promotion contract. Product unit tests alone do not count as cross-runtime Skill evaluation.",
-  "updated_on": "2026-09-27",
+  "next_action": "Implement Site -> Skill v1 as a usable vertical slice from fresh AX/evaluate/network evidence into a candidate executable Skill recipe with inferred parameters, provenance, verification evidence and a hard safety boundary. Keep SK-BROWSER-001 cross-runtime evaluation as a parallel external-runtime blocker and never fabricate it.",
+  "updated_on": "2026-09-28",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
     "audit": "BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md",
-    "policy": "use shipped behavior/architecture as reference; independently implement BrowserCrew code"
+    "policy": "functionality first; use shipped Kimi behavior/architecture as proven reference, independently implement BrowserCrew code, then exceed it"
   },
-  "product_main_head": "235f3180150caf7eaef6e5f0e65c28c6fe207c6f"
+  "product_main_head": "3b6c7567f5f20124bedbe30abdac45005c777756"
 }
