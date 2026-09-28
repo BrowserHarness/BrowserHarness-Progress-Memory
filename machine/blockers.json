@@ -1,4 +1,12 @@
 {
   "schema_version": 1,
-  "blockers": []
+  "blockers": [
+    {
+      "id": "SK-BROWSER-001-CROSS-RUNTIME",
+      "task_id": "V0.2-SK-BROWSER-EVAL-001",
+      "status": "external-runtime-required",
+      "blocking_current_task": false,
+      "detail": "The 25-case cross-runtime evaluation requires at least one real external agent runtime paired to BrowserCrew Local Bridge. Product unit tests do not count and no results may be fabricated."
+    }
+  ]
 }
