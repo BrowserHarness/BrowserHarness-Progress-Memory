@@ -182,9 +182,9 @@
   "unmerged_work": {
     "repo": "BrowserHarness/BrowserHarness",
     "branch": "feat/v0.4-task-dag-verifiers",
-    "head": "2a61787",
+    "head": "e4ef8f4",
     "pr": "https://github.com/BrowserHarness/BrowserHarness/pull/1 (open; Actions workflow removed by user decision)",
-    "tests": "305/305 extension; build and validate:mvp pass; scripts/e2e-smoke.mjs 13/13 in real Chromium (local only)",
+    "tests": "309/309 extension; build and validate:mvp pass; local real-Chromium: smoke:e2e 13/13, smoke:agent 5/5 (scripted mock model; full agent loop, Task DAG + verifier, polish, markdown)",
     "contents": [
       "Task DAG scheduler + verifier workers wired into agent tool",
       "trail compaction digest",
@@ -194,7 +194,25 @@
       "selection quick-explain (context menu)",
       "attachments uploaded by id",
       "recording to editable intent skill",
-      "user-visible rename BrowserCrew -> BrowserHarness (storage keys and bridge protocol unchanged)"
+      "user-visible rename BrowserCrew -> BrowserHarness (storage keys and bridge protocol unchanged)",
+      "safe markdown rendering of assistant messages",
+      "polish-my-request button"
+    ]
+  },
+  "kimi_parity": {
+    "done": [
+      "executable API site recipes",
+      "skill-creator workflow",
+      "trail compaction",
+      "recording to intent skill",
+      "selection quick-explain",
+      "attachment upload by id",
+      "prompt polish",
+      "rich rendering"
+    ],
+    "deliberately_not_done": [
+      "per-domain permission grants (would weaken BrowserHarness approvals; user decision needed)",
+      "outbound relay (strategic/security design; user decision needed)"
     ]
   }
 }
