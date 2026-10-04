@@ -3,29 +3,29 @@
   "workstreams": [
     {
       "id": "foundation",
-      "owner": "BrowserCrew/Progress-Memory",
+      "owner": "BrowserHarness/Progress-Memory",
       "status": "complete"
     },
     {
       "id": "product-runtime",
-      "owner": "BrowserCrew/browsercrew",
+      "owner": "BrowserHarness/browsercrew",
       "status": "watch-me-v3-adaptive-replay-verified"
     },
     {
       "id": "skills-workflows",
-      "owner": "BrowserCrew/Workflows + BrowserCrew/Skills-",
+      "owner": "BrowserHarness/Workflows + BrowserHarness/Skills-",
       "status": "sk-browser-001-cross-runtime-evaluation-active"
     },
     {
       "id": "commercial",
-      "owner": "BrowserCrew/Marketing + BrowserCrew/Monetization + BrowserCrew/Website",
+      "owner": "BrowserHarness/Marketing + BrowserHarness/Monetization + BrowserHarness/Website",
       "status": "foundation-complete"
     },
     {
       "id": "trust",
-      "owner": "BrowserCrew/Security-Trust",
+      "owner": "BrowserHarness/Security-Trust",
       "status": "full-capability-permission-contract-verified"
     }
   ],
-  "updated_on": "2026-09-27"
+  "updated_on": "2026-10-04"
 }

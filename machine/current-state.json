@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "phase": "v0.2-kimi-interaction-parity-verified-skill-lifecycle",
+  "phase": "v0.3-complete-kimi-parity-gap-closure-then-v0.4-task-dag",
   "status": "active",
   "current_workstream": "skills-workflows",
-  "current_task_id": "V0.2-SKILL-LIFECYCLE-001",
+  "current_task_id": "V0.4-TASK-DAG-VERIFIERS-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
@@ -157,12 +157,15 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Implement versioned Site Skill storage with immutable revisions, backward-compatible v1 migration/read, latest/history lookup and an explicit active-revision pointer; do not expose promotion until evaluation evidence is wired.",
-  "updated_on": "2026-09-28",
+  "next_action": "Close Kimi-parity gaps (executable site recipes, skill-creator workflow, conversation compaction, per-domain grants) interleaved with v0.4: pure scheduler runtime/task-dag.ts + task-dag.test.ts first, then read-only verifier workers.",
+  "updated_on": "2026-10-04",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
     "audit": "BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md",
     "policy": "functionality first; use shipped Kimi behavior/architecture as proven reference, independently implement BrowserCrew code, then exceed it"
   },
-  "product_main_head": "4153f5292d485abb382e31280d2c5a960e2b83f1"
+  "product_main_head": "42d67d37530a4e7a49c3a4d982a8ab770c857a25",
+  "tests": "269/269 extension, 16/16 Local Bridge (reproduced 2026-10-04)",
+  "canonical_host": "GitHub org BrowserHarness (Forgejo retired by user decision 2026-10-04)",
+  "rebrand": "BrowserCrew -> BrowserHarness; code/docs still contain browsercrew strings"
 }
