@@ -182,15 +182,19 @@
   "unmerged_work": {
     "repo": "BrowserHarness/BrowserHarness",
     "branch": "feat/v0.4-task-dag-verifiers",
-    "head": "796bc39",
-    "pr": "not opened: existing extension-ci.yml would trigger Actions; awaiting user decision to remove it",
-    "tests": "297/297 extension; build and validate:mvp pass; scripts/e2e-smoke.mjs 7/7 in real Chromium (local only)",
+    "head": "2a61787",
+    "pr": "https://github.com/BrowserHarness/BrowserHarness/pull/1 (open; Actions workflow removed by user decision)",
+    "tests": "305/305 extension; build and validate:mvp pass; scripts/e2e-smoke.mjs 13/13 in real Chromium (local only)",
     "contents": [
       "Task DAG scheduler + verifier workers wired into agent tool",
       "trail compaction digest",
       "read-only API site recipes (recipe-api-*) with verify/promote lifecycle intact",
       "guided skill-creator workflow prompt",
-      "local real-Chromium e2e smoke"
+      "local real-Chromium e2e smoke",
+      "selection quick-explain (context menu)",
+      "attachments uploaded by id",
+      "recording to editable intent skill",
+      "user-visible rename BrowserCrew -> BrowserHarness (storage keys and bridge protocol unchanged)"
     ]
   }
 }
