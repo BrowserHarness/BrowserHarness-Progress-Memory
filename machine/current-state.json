@@ -167,5 +167,16 @@
   "product_main_head": "42d67d37530a4e7a49c3a4d982a8ab770c857a25",
   "tests": "269/269 extension, 16/16 Local Bridge (reproduced 2026-10-04)",
   "canonical_host": "GitHub org BrowserHarness (Forgejo retired by user decision 2026-10-04)",
-  "rebrand": "BrowserCrew -> BrowserHarness; code/docs still contain browsercrew strings"
+  "rebrand": "BrowserCrew -> BrowserHarness; code/docs still contain browsercrew strings",
+  "github_safety": {
+    "policy": "docs/policies/GITHUB-SAFETY-GUARDRAILS.md",
+    "machine_policy": "machine/github-guardrails.json",
+    "mode": "local_only_no_actions",
+    "actions_allowed": false,
+    "circuit_breaker": true,
+    "bulk_write_limit": 20,
+    "cross_repo_review_threshold": 3,
+    "commercial_pages_default_allowed": false,
+    "operational_runtime": "local"
+  }
 }

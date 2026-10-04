@@ -27,3 +27,6 @@ Executable site recipes, skill-creator workflow, conversation compaction, per-do
 
 ## Reports
 See project files: product-status/extension-completion-2026-10-04.md and competitor-analysis/kimi-extension-2.0.22-teardown.md.
+
+## GitHub safety
+Mode `local_only_no_actions` (set by user 2026-10-04): no GitHub Actions or workflows; work and test locally, push/pull in batches. Policy in `docs/policies/GITHUB-SAFETY-GUARDRAILS.md`; checker `python3 scripts/check_github_actions_policy.py <repo>`. Reason: GitHub flagged false positives.
