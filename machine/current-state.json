@@ -157,17 +157,17 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Bridge naming (accept browserharness alias, keep browsercrew for existing pairings), then docs/README rebrand; user decisions pending: per-domain grants, outbound relay; external: SK-BROWSER-001 real runtime, manual Chrome acceptance.",
+  "next_action": "User decisions pending: per-domain grants, outbound relay. External: SK-BROWSER-001 real runtime, manual Chrome acceptance. Then Web Store assets and legal text rebrand review.",
   "updated_on": "2026-10-04",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
     "audit": "BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md",
     "policy": "functionality first; use shipped Kimi behavior/architecture as proven reference, independently implement BrowserCrew code, then exceed it"
   },
-  "product_main_head": "d3995fc2c53f516aba242e5c353dced516965f51",
+  "product_main_head": "21dd12e7a3ef79d12d5fc83d112e84014c9b7303",
   "tests": "309/309 extension, 16/16 Bridge (local); smoke:e2e 13/13 and smoke:agent 5/5 in real Chromium",
   "canonical_host": "GitHub org BrowserHarness (Forgejo retired by user decision 2026-10-04)",
-  "rebrand": "BrowserCrew -> BrowserHarness; code/docs still contain browsercrew strings",
+  "rebrand": "Extension UI/prompts, Bridge messages and docs say BrowserHarness; legacy browsercrew identifiers kept for compatibility (MCP server/tool names, ~/.browsercrew-bridge, storage keys). TERMS/PRIVACY and Kimi audit not yet reviewed.",
   "github_safety": {
     "policy": "docs/policies/GITHUB-SAFETY-GUARDRAILS.md",
     "machine_policy": "machine/github-guardrails.json",

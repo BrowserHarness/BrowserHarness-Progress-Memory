@@ -34,4 +34,4 @@ Mode `local_only_no_actions` (set by user 2026-10-04): no GitHub Actions or work
 ## Merged (2026-10-04)
 BrowserHarness PR #1 squash-merged to main as `d3995fc`: Task DAG + verifier workers, trail compaction, read-only API site recipes, skill-creator workflow, selection quick-explain, attachment upload by id, recording to intent skill, markdown rendering, polish button, user-visible rename, Actions workflow removed, local real-Chromium tests (`npm run smoke:e2e`, `npm run smoke:agent`). 309/309 tests.
 
-Not done on purpose, need a user decision: per-domain permission grants (weakens approvals) and outbound relay (security design). Still open: Bridge MCP server name and docs still say BrowserCrew, SK-BROWSER-001 (needs a real external runtime), manual real-Chrome acceptance.
+Not done on purpose, need a user decision: per-domain permission grants (weakens approvals) and outbound relay (security design). Rebrand follow-up merged as `21dd12e` (Bridge messages and docs; legacy identifiers kept for compatibility). Still open: legal text (TERMS/PRIVACY) rebrand review, SK-BROWSER-001 (needs a real external runtime), manual real-Chrome acceptance.
