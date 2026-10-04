@@ -31,7 +31,7 @@ See project files: product-status/extension-completion-2026-10-04.md and competi
 ## GitHub safety
 Mode `local_only_no_actions` (set by user 2026-10-04): no GitHub Actions or workflows; work and test locally, push/pull in batches. Policy in `docs/policies/GITHUB-SAFETY-GUARDRAILS.md`; checker `python3 scripts/check_github_actions_policy.py <repo>`. Reason: GitHub flagged false positives.
 
-## Open PR (2026-10-04)
-BrowserHarness PR #1, branch `feat/v0.4-task-dag-verifiers` (head e4ef8f4): Task DAG + verifier workers, trail compaction, read-only API site recipes, skill-creator workflow, selection quick-explain, attachment upload by id, recording to intent skill, user-visible rename to BrowserHarness, safe markdown rendering, polish button, local real-Chromium tests (`npm run smoke:e2e` 13/13 and `npm run smoke:agent` 5/5 with a scripted mock model covering the full agent loop and Task DAG + verifier). 309/309 tests, build and validate:mvp pass. The Actions workflow was removed by user decision. Not merged: waiting for the user.
+## Merged (2026-10-04)
+BrowserHarness PR #1 squash-merged to main as `d3995fc`: Task DAG + verifier workers, trail compaction, read-only API site recipes, skill-creator workflow, selection quick-explain, attachment upload by id, recording to intent skill, markdown rendering, polish button, user-visible rename, Actions workflow removed, local real-Chromium tests (`npm run smoke:e2e`, `npm run smoke:agent`). 309/309 tests.
 
-Not done on purpose, need a user decision: per-domain permission grants (weakens approvals) and outbound relay (security design). Still open: Bridge MCP server name and docs still say BrowserCrew, SK-BROWSER-001, manual real-Chrome acceptance, Web Store assets.
+Not done on purpose, need a user decision: per-domain permission grants (weakens approvals) and outbound relay (security design). Still open: Bridge MCP server name and docs still say BrowserCrew, SK-BROWSER-001 (needs a real external runtime), manual real-Chrome acceptance.
