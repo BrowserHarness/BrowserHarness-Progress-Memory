@@ -157,17 +157,17 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "User decisions pending: per-domain grants, outbound relay. External: SK-BROWSER-001 real runtime, manual Chrome acceptance. Then Web Store assets and legal text rebrand review.",
+  "next_action": "Outbound relay awaits permission to retry (design: Bridge allow_remote + 24+ char token, extension accepts wss:// non-loopback addresses, agent runtime on the relay host reaches the Bridge over loopback). Then Web Store assets; external: SK-BROWSER-001 real runtime, manual Chrome acceptance.",
   "updated_on": "2026-10-04",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
     "audit": "BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md",
     "policy": "functionality first; use shipped Kimi behavior/architecture as proven reference, independently implement BrowserCrew code, then exceed it"
   },
-  "product_main_head": "21dd12e7a3ef79d12d5fc83d112e84014c9b7303",
-  "tests": "309/309 extension, 16/16 Bridge (local); smoke:e2e 13/13 and smoke:agent 5/5 in real Chromium",
+  "product_main_head": "efb5e3329c3bbf377067b4987b7fc9a3a39c1a6a",
+  "tests": "312/312 extension, 16/16 Bridge; smoke:e2e 13/13; smoke:agent 8/8 (real Chromium, scripted mock model)",
   "canonical_host": "GitHub org BrowserHarness (Forgejo retired by user decision 2026-10-04)",
-  "rebrand": "Extension UI/prompts, Bridge messages and docs say BrowserHarness; legacy browsercrew identifiers kept for compatibility (MCP server/tool names, ~/.browsercrew-bridge, storage keys). TERMS/PRIVACY and Kimi audit not yet reviewed.",
+  "rebrand": "Complete: every BrowserCrew/browsercrew identifier is now BrowserHarness/browserharness (code, MCP names, config dir, storage keys, docs, legal texts). Nothing had shipped, so no migration.",
   "github_safety": {
     "policy": "docs/policies/GITHUB-SAFETY-GUARDRAILS.md",
     "machine_policy": "machine/github-guardrails.json",
@@ -188,11 +188,11 @@
       "selection quick-explain",
       "attachment upload by id",
       "prompt polish",
-      "rich rendering"
+      "rich rendering",
+      "per-domain 'always allow on this site' approval grants (Settings -> Permissions to revoke)"
     ],
     "deliberately_not_done": [
-      "per-domain permission grants (would weaken BrowserHarness approvals; user decision needed)",
-      "outbound relay (strategic/security design; user decision needed)"
+      "outbound relay: user approved, but the auto-mode classifier blocked the change that lets the Bridge bind to a non-loopback address; needs an explicit user permission rule or a go-ahead to retry"
     ]
   },
   "merged_work": {

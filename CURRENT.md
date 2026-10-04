@@ -32,6 +32,11 @@ See project files: product-status/extension-completion-2026-10-04.md and competi
 Mode `local_only_no_actions` (set by user 2026-10-04): no GitHub Actions or workflows; work and test locally, push/pull in batches. Policy in `docs/policies/GITHUB-SAFETY-GUARDRAILS.md`; checker `python3 scripts/check_github_actions_policy.py <repo>`. Reason: GitHub flagged false positives.
 
 ## Merged (2026-10-04)
-BrowserHarness PR #1 squash-merged to main as `d3995fc`: Task DAG + verifier workers, trail compaction, read-only API site recipes, skill-creator workflow, selection quick-explain, attachment upload by id, recording to intent skill, markdown rendering, polish button, user-visible rename, Actions workflow removed, local real-Chromium tests (`npm run smoke:e2e`, `npm run smoke:agent`). 309/309 tests.
+Product main `efb5e33`. PR #1 (Task DAG + verifiers, API recipes, compaction, quick-explain, attachments, intent skills, markdown, polish, Actions workflow removed), PR #2 (Bridge/docs rebrand), PR #3 (complete rename to BrowserHarness everywhere), PR #4 (always-allow-on-this-site approval grants). 312/312 extension tests, 16/16 Bridge, local real-Chromium `npm run smoke:e2e` 13/13 and `npm run smoke:agent` 8/8.
 
-Not done on purpose, need a user decision: per-domain permission grants (weakens approvals) and outbound relay (security design). Rebrand follow-up merged as `21dd12e` (Bridge messages and docs; legacy identifiers kept for compatibility). Still open: legal text (TERMS/PRIVACY) rebrand review, SK-BROWSER-001 (needs a real external runtime), manual real-Chrome acceptance.
+User decision 2026-10-04: functionality comes before approval friction; the product name is BrowserHarness everywhere.
+
+## Blocked: outbound relay
+Wanted: let the Bridge bind to a non-loopback address in an explicit `allow_remote` mode (token of 24+ chars), accept `wss://` non-loopback addresses in the extension, and keep agent runtimes on the relay host reaching the Bridge over loopback. The auto-mode classifier denied the Bridge change as a security weakening. Needs the user's explicit permission rule or go-ahead before retrying.
+
+Still open: SK-BROWSER-001 (needs a real external runtime), manual real-Chrome acceptance, Web Store assets.
