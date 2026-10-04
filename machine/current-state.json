@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "phase": "v0.2-kimi-interaction-parity-verified-skill-lifecycle",
+  "phase": "v0.4-merged-kimi-parity-done-awaiting-acceptance",
   "status": "active",
   "current_workstream": "skills-workflows",
-  "current_task_id": "V0.2-SKILL-LIFECYCLE-001",
+  "current_task_id": "V0.4-TASK-DAG-VERIFIERS-001",
   "canonical_product_repo": "BrowserCrew/browsercrew",
   "completed_tasks": [
     "FOUNDATION-001",
@@ -157,12 +157,62 @@
     "manual_real_chrome_acceptance": "pending-deferred-by-user",
     "public_release": "blocked_until_manual_acceptance"
   },
-  "next_action": "Implement versioned Site Skill storage with immutable revisions, backward-compatible v1 migration/read, latest/history lookup and an explicit active-revision pointer; do not expose promotion until evaluation evidence is wired.",
-  "updated_on": "2026-09-28",
+  "next_action": "Bridge naming (accept browserharness alias, keep browsercrew for existing pairings), then docs/README rebrand; user decisions pending: per-domain grants, outbound relay; external: SK-BROWSER-001 real runtime, manual Chrome acceptance.",
+  "updated_on": "2026-10-04",
   "reference_source": {
     "uploaded_package": "Kimi Browser Extension / WebBridge 2.0.22",
     "audit": "BrowserCrew/browsercrew/docs/research/KIMI-EXTENSION-REFERENCE-AUDIT.md",
     "policy": "functionality first; use shipped Kimi behavior/architecture as proven reference, independently implement BrowserCrew code, then exceed it"
   },
-  "product_main_head": "4153f5292d485abb382e31280d2c5a960e2b83f1"
+  "product_main_head": "d3995fc2c53f516aba242e5c353dced516965f51",
+  "tests": "309/309 extension, 16/16 Bridge (local); smoke:e2e 13/13 and smoke:agent 5/5 in real Chromium",
+  "canonical_host": "GitHub org BrowserHarness (Forgejo retired by user decision 2026-10-04)",
+  "rebrand": "BrowserCrew -> BrowserHarness; code/docs still contain browsercrew strings",
+  "github_safety": {
+    "policy": "docs/policies/GITHUB-SAFETY-GUARDRAILS.md",
+    "machine_policy": "machine/github-guardrails.json",
+    "mode": "local_only_no_actions",
+    "actions_allowed": false,
+    "circuit_breaker": true,
+    "bulk_write_limit": 20,
+    "cross_repo_review_threshold": 3,
+    "commercial_pages_default_allowed": false,
+    "operational_runtime": "local"
+  },
+  "kimi_parity": {
+    "done": [
+      "executable API site recipes",
+      "skill-creator workflow",
+      "trail compaction",
+      "recording to intent skill",
+      "selection quick-explain",
+      "attachment upload by id",
+      "prompt polish",
+      "rich rendering"
+    ],
+    "deliberately_not_done": [
+      "per-domain permission grants (would weaken BrowserHarness approvals; user decision needed)",
+      "outbound relay (strategic/security design; user decision needed)"
+    ]
+  },
+  "merged_work": {
+    "repo": "BrowserHarness/BrowserHarness",
+    "branch": "feat/v0.4-task-dag-verifiers",
+    "head": "e4ef8f4",
+    "pr": "BrowserHarness/BrowserHarness#1 squash-merged as d3995fc on 2026-10-04",
+    "tests": "309/309 extension; build and validate:mvp pass; local real-Chromium: smoke:e2e 13/13, smoke:agent 5/5 (scripted mock model; full agent loop, Task DAG + verifier, polish, markdown)",
+    "contents": [
+      "Task DAG scheduler + verifier workers wired into agent tool",
+      "trail compaction digest",
+      "read-only API site recipes (recipe-api-*) with verify/promote lifecycle intact",
+      "guided skill-creator workflow prompt",
+      "local real-Chromium e2e smoke",
+      "selection quick-explain (context menu)",
+      "attachments uploaded by id",
+      "recording to editable intent skill",
+      "user-visible rename BrowserCrew -> BrowserHarness (storage keys and bridge protocol unchanged)",
+      "safe markdown rendering of assistant messages",
+      "polish-my-request button"
+    ]
+  }
 }

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "mode": "local_only_no_actions",
+  "set_by": "user",
+  "set_on": "2026-10-04",
+  "policy": "docs/policies/GITHUB-SAFETY-GUARDRAILS.md",
+  "actions": {
+    "allowed": false,
+    "workflows_may_be_created": false,
+    "if_ever_approved": {
+      "allowed_purposes": ["lint", "format-check", "unit-test", "type-check", "static-analysis", "lightweight-build-verification"],
+      "limits": {"job_timeout_minutes_max": 15, "parallel_jobs_max": 2, "matrix_jobs_max": 8, "automatic_retries_max": 0, "schedule_trigger_allowed": false, "concurrency_required": true, "default_permissions": "read-only", "artifact_retention_days_max": 3}
+    }
+  },
+  "github_api": {
+    "max_write_operations_per_task": 20,
+    "cross_repo_human_review_threshold": 3,
+    "circuit_breaker_statuses": [403, 429],
+    "stop_on_suspension_language": true,
+    "automatic_retry_after_circuit_breaker": false
+  },
+  "pages": {"commercial_production_default_allowed": false},
+  "runtime_routes": {
+    "source_control": "github",
+    "agents_and_automation": "local",
+    "tests_and_evals": "local",
+    "development": "local"
+  }
+}
