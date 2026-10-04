@@ -30,3 +30,6 @@ See project files: product-status/extension-completion-2026-10-04.md and competi
 
 ## GitHub safety
 Mode `local_only_no_actions` (set by user 2026-10-04): no GitHub Actions or workflows; work and test locally, push/pull in batches. Policy in `docs/policies/GITHUB-SAFETY-GUARDRAILS.md`; checker `python3 scripts/check_github_actions_policy.py <repo>`. Reason: GitHub flagged false positives.
+
+## Unmerged work (2026-10-04)
+Branch `feat/v0.4-task-dag-verifiers` (head 796bc39) in BrowserHarness: Task DAG + verifier workers, trail compaction, API site recipes, skill-creator workflow, local e2e smoke (`npm run smoke:e2e`, 7/7 in real Chromium). 297/297 tests, build and validate:mvp pass. No PR yet: the repo's existing `extension-ci.yml` would run on a PR, which conflicts with the no-Actions rule. Waiting for the user to approve removing it.
